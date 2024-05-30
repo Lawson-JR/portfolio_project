@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <link rel="icon" href="images/clipboard.png" type="image/icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Task Management Application</h1>
+            <div id="auth">
+                <div id="loginInterface">
+                    <input type="text" id="username" placeholder="Username">
+                    <input type="password" id="password" placeholder="Password">
+                    <button id="loginBtn">Login</button>
+                    <button id="showSignUpBtn">Sign Up</button>
+                </div>
+                <div id="signupInterface" style="display: none;">
+                    <input type="text" id="signupUsername" placeholder="Username">
+                    <input type="password" id="signupPassword" placeholder="Password">
+                    <button id="signUpBtn">Create Account</button>
+                    <button id="cancelSignUpBtn">Cancel</button>
+                </div>
+                <button id="logoutBtn" style="display:none;">Logout</button>
+                <button id="deleteAccountBtn" style="display: none;">Delete Account</button>
+            </div>
+        </header>
+        <main>
+            <div id="accountListContainer">
+                <ul id="accountList"></ul>
+                <button id="deleteAllAccountsBtn">Delete All Accounts</button>
+                <div id="accountStatus">0/4 accounts occupied</div>
+            </div>              
+            <div id="taskInput">
+                <input type="text" id="newTask" placeholder="New Task" disabled>
+                <button id="addTaskBtn" disabled>Add Task</button>
+            </div>
+            <div id="taskContainer">
+                <h2>Tasks</h2>
+                <div id="tasks">
+                    <!-- Tasks will be dynamically added here -->
+                </div>
+            </div>
+        </main>  
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
