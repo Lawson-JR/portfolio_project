@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const loginBtn = document.getElementById('loginBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const deleteAccountBtn = document.getElementById('deleteAccountBtn');
-    const signUpBtn = document.getElementById('signUpBtn'); // Add sign-up button
     const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password'); // Added password input
+    const passwordInput = document.getElementById('password');
+    const signUpUsernameInput = document.getElementById('signupUsername');
+    const signUpPasswordInput = document.getElementById('signupPassword');
+    const signUpSecurityQuestionInput = document.getElementById('signupSecurityQuestion');
+    const signUpSecurityAnswerInput = document.getElementById('signupSecurityAnswer');
     const addTaskBtn = document.getElementById('addTaskBtn');
     const newTaskInput = document.getElementById('newTask');
+    const dueDateInput = document.getElementById('dueDate');
     const tasksContainer = document.getElementById('tasks');
     const accountStatus = document.getElementById('accountStatus');
     const accountListContainer = document.getElementById('accountListContainer');
@@ -17,10 +18,40 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentUser = null;
     let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
 
+    showSignUpBtn.addEventListener('click', () => {
+        document.getElementById('loginInterface').style.display = 'none';
+        document.getElementById('signupInterface').style.display = 'block';
+    });
+
+    cancelSignUpBtn.addEventListener('click', () => {
+        document.getElementById('signupInterface').style.display = 'none';
+        document.getElementById('loginInterface').style.display = 'block';
+    });
+
+    recoverPasswordBtn.addEventListener('click', () => {
+        const username = prompt('Enter your username:');
+        if (username) {
+            const account = accounts.find(acc => acc.username === username);
+            if (account) {
+                const securityQuestion = account.securityQuestion;
+                const answer = prompt(securityQuestion);
+                if (answer === account.securityAnswer) {
+                    alert(`Your password is: ${account.password}`);
+                } else {
+                    alert('Incorrect answer!');
+                }
+            } else {
+                alert('Username not found!');
+            }
+        }
+    });
+
     signUpBtn.addEventListener('click', () => {
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim(); // Get the password input value
-        if (username && password) {
+        const username = signUpUsernameInput.value.trim();
+        const password = signUpPasswordInput.value.trim();
+        const securityQuestion = signUpSecurityQuestionInput.value.trim();
+        const securityAnswer = signUpSecurityAnswerInput.value.trim();
+        if (username && password && securityQuestion && securityAnswer) {
             if (accounts.length >= MAX_ACCOUNTS) {
                 alert('Maximum number of accounts reached. Cannot add more users.');
                 return;
@@ -32,24 +63,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            accounts.push({ username, password }); // Store username and password
-            localStorage.setItem('accounts', JSON.stringify(accounts)); // Update local storage
+            accounts.push({ username, password, securityQuestion, securityAnswer });
+            localStorage.setItem('accounts', JSON.stringify(accounts));
             updateAccountStatus();
             updateAccountList();
             alert('Account created successfully. You can now log in.');
         } else {
-            alert('Please enter a username and password.');
+            alert('Please fill in all fields.');
         }
 
-        // Clear inputs after action
-        usernameInput.value = '';
-        passwordInput.value = '';
+        signUpUsernameInput.value = '';
+        signUpPasswordInput.value = '';
+        signUpSecurityQuestionInput.value = '';
+        signUpSecurityAnswerInput.value = '';
     });
 
-    // User Authentication
     loginBtn.addEventListener('click', () => {
         const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim(); // Get the password input value
+        const password = passwordInput.value.trim();
         if (username && password) {
             const account = accounts.find(acc => acc.username === username);
             if (!account) {
@@ -57,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            if (account.password === password) { // Check if password matches
+            if (account.password === password) {
                 currentUser = username;
                 updateAuthUI();
                 loadTasks();
@@ -66,44 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Incorrect password.');
             }
 
-            // Clear inputs after action
             usernameInput.value = '';
             passwordInput.value = '';
         }
-    });
-
-    signUpBtn.addEventListener('click', () => {
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim(); // Get the password input value
-        if (username && password) {
-            if (accounts.length >= MAX_ACCOUNTS) {
-                alert('Maximum number of accounts reached. Cannot add more users.');
-                return;
-            }
-
-            const existingAccount = accounts.find(acc => acc.username === username);
-            if (existingAccount) {
-                alert('Username already exists. Please choose a different username.');
-                return;
-            }
-
-            accounts.push({ username, password }); // Store username and password
-            saveAccounts();
-            alert('Account created successfully. You can now log in.');
-        } else {
-            alert('Please enter a username and password.');
-        }
-
-        // Clear inputs after action
-        usernameInput.value = '';
-        passwordInput.value = '';
     });
 
     logoutBtn.addEventListener('click', () => {
         currentUser = null;
         updateAuthUI();
         renderTasks();
-        // Clear inputs after logout
         usernameInput.value = '';
         passwordInput.value = '';
     });
@@ -113,13 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
             accounts = accounts.filter(account => account.username !== currentUser);
             localStorage.removeItem(currentUser);
             saveAccounts();
-            updateAccountStatus(); // Update account status
-            updateAccountList(); // Update account list
+            updateAccountStatus();
+            updateAccountList();
             currentUser = null;
             updateAuthUI();
             renderTasks();
-
-            // Clear inputs after action
             usernameInput.value = '';
             passwordInput.value = '';
         }
@@ -135,8 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
             currentUser = null;
             updateAuthUI();
             renderTasks();
-
-            // Clear inputs after action
             usernameInput.value = '';
             passwordInput.value = '';
         }
@@ -147,42 +145,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateAccountList() {
-        accountList.innerHTML = ''; // Clear existing list
-
+        accountList.innerHTML = '';
         accounts.forEach(account => {
             const accountItem = document.createElement('li');
             accountItem.textContent = account.username;
-            
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = 'Delete';
-            deleteBtn.addEventListener('click', () => {
-                accounts = accounts.filter(acc => acc.username !== account.username);
-                localStorage.removeItem(account.username);
-                saveAccounts();
-                updateAccountStatus();
-                updateAccountList();
+
+            const switchBtn = document.createElement('button');
+            switchBtn.textContent = 'Switch';
+            switchBtn.addEventListener('click', () => {
+                const password = prompt(`Enter password for ${account.username}`);
+                if (password === account.password) {
+                    currentUser = account.username;
+                    updateAuthUI();
+                    loadTasks();
+                    renderTasks();
+                } else {
+                    alert('Incorrect password.');
+                }
             });
 
-            accountItem.appendChild(deleteBtn);
+            accountItem.appendChild(switchBtn);
             accountList.appendChild(accountItem);
         });
     }
-
     function updateAuthUI() {
         if (currentUser) {
             usernameInput.style.display = 'none';
-            passwordInput.style.display = 'none'; // Hide password input on login
+            passwordInput.style.display = 'none';
             loginBtn.style.display = 'none';
-            signUpBtn.style.display = 'none'; // Hide sign-up button on login
+            showSignUpBtn.style.display = 'none';
             logoutBtn.style.display = 'block';
             deleteAccountBtn.style.display = 'block';
             addTaskBtn.disabled = false;
             newTaskInput.disabled = false;
         } else {
             usernameInput.style.display = 'block';
-            passwordInput.style.display = 'block'; // Show password input on logout
+            passwordInput.style.display = 'block';
             loginBtn.style.display = 'block';
-            signUpBtn.style.display = 'block'; // Show sign-up button on logout
+            showSignUpBtn.style.display = 'block';
             logoutBtn.style.display = 'none';
             deleteAccountBtn.style.display = 'none';
             addTaskBtn.disabled = true;
@@ -190,29 +190,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Add Task
-    addTaskBtn.addEventListener('click', () => {
-        const taskText = newTaskInput.value.trim();
-        if (taskText) {
-            const task = { id: Date.now(), text: taskText, user: currentUser };
-            let userTasks = JSON.parse(localStorage.getItem(currentUser)) || [];
-            userTasks.push(task);
-            localStorage.setItem(currentUser, JSON.stringify(userTasks));
-            newTaskInput.value = ''; // Clear task input after adding
-            renderTasks();
-        }
-    });
-
-    // Load Tasks
-    function loadTasks() {
-        tasks = JSON.parse(localStorage.getItem(currentUser)) || [];
+    function addTask(taskText) {
+        const task = { id: Date.now(), text: taskText, user: currentUser };
+        let userTasks = JSON.parse(localStorage.getItem(currentUser)) || [];
+        userTasks.push(task);
+        localStorage.setItem(currentUser, JSON.stringify(userTasks));
     }
 
-    // Render Tasks
+    function loadTasks() {
+        return JSON.parse(localStorage.getItem(currentUser)) || [];
+    }
+
     function renderTasks() {
         tasksContainer.innerHTML = '';
         if (currentUser) {
-            const userTasks = JSON.parse(localStorage.getItem(currentUser)) || [];
+            const userTasks = loadTasks();
             userTasks.forEach(task => {
                 const taskElement = document.createElement('div');
                 taskElement.className = 'task';
@@ -222,19 +214,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="deleteBtn" data-id="${task.id}">Delete</button>
                 `;
                 taskElement.querySelector('.deleteBtn').addEventListener('click', () => {
-                    let tasks = JSON.parse(localStorage.getItem(currentUser));
+                    let tasks = loadTasks();
                     tasks = tasks.filter(t => t.id !== task.id);
                     localStorage.setItem(currentUser, JSON.stringify(tasks));
                     renderTasks();
                 });
                 tasksContainer.appendChild(taskElement);
 
-                // Drag and Drop
                 taskElement.addEventListener('dragstart', () => {
                     taskElement.classList.add('dragging');
                 });
                 taskElement.addEventListener('dragend', () => {
                     taskElement.classList.remove('dragging');
+                    saveTasksOrder();
                 });
             });
 
@@ -247,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     tasksContainer.insertBefore(draggingElement, afterElement);
                 }
-                saveTasksOrder();
             });
         }
     }
@@ -266,7 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { offset: Number.NEGATIVE_INFINITY }).element;
     }
 
-    // Save Tasks Order
     function saveTasksOrder() {
         const tasks = [];
         tasksContainer.querySelectorAll('.task').forEach(taskElement => {
@@ -277,14 +267,21 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(currentUser, JSON.stringify(tasks));
     }
 
-    // Save Accounts to Local Storage
     function saveAccounts() {
         localStorage.setItem('accounts', JSON.stringify(accounts));
     }
 
-    // Initial UI Update
     updateAuthUI();
-    updateAccountStatus(); // Update account status
-    updateAccountList(); // Update account list
+    updateAccountStatus();
+    updateAccountList();
     renderTasks();
+
+    addTaskBtn.addEventListener('click', () => {
+        const taskText = newTaskInput.value.trim();
+        if (taskText) {
+            addTask(taskText);
+            newTaskInput.value = '';
+            renderTasks();
+        }
+    });
 });
