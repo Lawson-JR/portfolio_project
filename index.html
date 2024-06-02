@@ -20,11 +20,14 @@
                 <div id="signupInterface" style="display: none;">
                     <input type="text" id="signupUsername" placeholder="Username">
                     <input type="password" id="signupPassword" placeholder="Password">
+                    <input type="text" id="signupSecurityQuestion" placeholder="Security Question (e.g., Name of your first pet)">
+                    <input type="text" id="signupSecurityAnswer" placeholder="Answer">
                     <button id="signUpBtn">Create Account</button>
                     <button id="cancelSignUpBtn">Cancel</button>
                 </div>
                 <button id="logoutBtn" style="display:none;">Logout</button>
                 <button id="deleteAccountBtn" style="display: none;">Delete Account</button>
+                <button id="recoverPasswordBtn">Recover Password</button>
             </div>
         </header>
         <main>
@@ -33,11 +36,12 @@
                 <button id="deleteAllAccountsBtn">Delete All Accounts</button>
                 <div id="accountStatus">0/4 accounts occupied</div>
             </div>              
-            <div id="taskInput">
-                <input type="text" id="newTask" placeholder="New Task" disabled>
-                <button id="addTaskBtn" disabled>Add Task</button>
-            </div>
             <div id="taskContainer">
+                <div id="taskInput">
+                    <input type="text" id="newTask" placeholder="New Task" disabled>
+                    <input type="date" id="dueDate" disabled>
+                    <button id="addTaskBtn" disabled>Add Task</button>
+                </div>
                 <h2>Tasks</h2>
                 <div id="tasks">
                     <!-- Tasks will be dynamically added here -->
@@ -45,6 +49,6 @@
             </div>
         </main>  
     </div>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
