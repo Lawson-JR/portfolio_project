@@ -132,7 +132,7 @@ header nav ul li a:hover {
     flex-direction: column;
 }
 
-header {
+.app-header {
     background: #5c6bc0;
     color: #fff;
     padding: 30px;
@@ -140,164 +140,137 @@ header {
     justify-content: space-between;
     align-items: center;
     border-radius: 15px 15px 0 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
 }
 
-header h1 {
+.app-header h1 {
     margin: 0;
-    font-family: "JetBrains Mono", "Consolas";
-    font-size: 50px;
+    font-size: 2em;
+}
+
+.app-header button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3949ab;
+    color: #fff;
+    cursor: pointer;
+}
+
+.app-header button:hover {
+    background-color: #303f9f;
 }
 
 #auth {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    width: 70%;
-}
-
-#recoverPasswordBtn {
-    width: 100%;
-}
-
-#loginInterface, #signupInterface {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 100%;
-}
-
-#signupInterface input {
-    width: calc(100% - 30px);
-}
-
-main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 30px;
-    background-color: #e8eaf6;
-    border-radius: 0 0 15px 15px;
-    transition: all 0.3s ease;
-    overflow: hidden;
-    height: calc(100% - 160px);
-}
-
-#accountListContainer {
-    width: 25%;
-    overflow-y: auto;
-    padding-right: 20px;
-}
-
-#accountList {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-#accountList li {
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 8px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    font-family: "JetBrains Mono", "Consolas";
 }
 
-#accountStatus {
-    font-size: 14px;
-    text-align: center;
-    margin-top: 15px;
-    font-family: "JetBrains Mono", "Consolas";
+#auth input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#auth button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3949ab;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#auth button:hover {
+    background-color: #303f9f;
 }
 
 #taskContainer {
-    width: 70%;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 #taskInput {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-#taskInput input[type="text"],
-#taskInput input[type="date"] {
+#taskInput input {
     padding: 10px;
-    font-family: "JetBrains Mono", "Consolas";
-    width: 45%;
-    border: 1px solid #d0d0d0;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-#taskInput input[type="text"]:focus,
-#taskInput input[type="date"]:focus {
-    border-color: #5c6bc0;
+    flex-grow: 1;
 }
 
 #taskInput button {
     padding: 10px 20px;
-    background: #5c6bc0;
-    color: #fff;
     border: none;
     border-radius: 5px;
+    background-color: #3949ab;
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 #taskInput button:hover {
-    background-color: #3949ab;
+    background-color: #303f9f;
 }
 
 #tasks {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    height: 400px;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .task {
-    background: #e3f2fd;
-    padding: 15px;
-    margin-bottom: 10px;
+    background-color: #e8eaf6;
+    padding: 10px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .task h3 {
     margin: 0;
-    font-size: 18px;
-    font-family: "JetBrains Mono", "Consolas";
-}
-
-.task p {
-    margin: 0;
-    font-size: 14px;
-    color: #757575;
-    font-family: "JetBrains Mono", "Consolas";
 }
 
 .task button {
     padding: 5px 10px;
-    background: #f44336;
-    color: #fff;
     border: none;
     border-radius: 5px;
+    background-color: #e53935;
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .task button:hover {
     background-color: #d32f2f;
+}
+
+.task {
+    background-color: #e8eaf6;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: move;
+}
+
+.task.hide {
+    display: none;
+}
+
+.task.drag-over {
+    border: 2px dashed #3949ab;
+}
+
+.highlighted-account {
+    background-color: blue !important;
+    color: white !important;
 }
