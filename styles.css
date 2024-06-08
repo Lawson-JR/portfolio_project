@@ -130,6 +130,7 @@ header nav ul li a:hover {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    display: none; /* Initially hide the app */
 }
 
 .app-header {
@@ -193,6 +194,10 @@ header nav ul li a:hover {
     overflow-y: auto;
 }
 
+#taskContainer h2 {
+    margin-bottom: 20px;
+}
+
 #taskInput {
     display: flex;
     gap: 10px;
@@ -223,7 +228,10 @@ header nav ul li a:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: 200px;
+    overflow: auto;
 }
+
 
 .task {
     background-color: #e8eaf6;
