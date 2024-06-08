@@ -95,6 +95,45 @@ const toggleTaskDone = (index) => {
     saveAccounts(); // Ensure changes are saved
 };
 
+// Add Task button event listener
+// Add Task button event listener
+addTaskBtn.addEventListener('click', () => {
+    const description = newTaskInput.value.trim();
+    let dueDate = dueDateInput.value;
+
+    if (!description) {
+        alert('Please enter a description for the task.');
+        return;
+    }
+
+    // Use current date if no due date is provided
+    if (!dueDate) {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        let month = currentDate.getMonth() + 1;
+        let day = currentDate.getDate();
+
+        // Add leading zero if month/day is single digit
+        month = month < 10 ? '0' + month : month;
+        day = day < 10 ? '0' + day : day;
+
+        dueDate = `${year}-${month}-${day}`;
+    }
+
+    const newTask = {
+        description,
+        dueDate,
+        done: false
+    };
+
+    tasks.push(newTask);
+    updateTaskUI();
+    saveAccounts(); // Ensure changes are saved
+    
+    newTaskInput.value = '';
+    dueDateInput.value = '';
+});
+
 // Example function to delete a task
 const deleteTask = (index) => {
     tasks.splice(index, 1);
@@ -315,3 +354,39 @@ updateAuthUI();
 updateAccountStatus();
 updateAccountListUI();
 updateTaskUI();
+
+document.addEventListener("DOMContentLoaded", function() {
+    const goHomeBtn = document.getElementById('goHomeBtn');
+    goHomeBtn.style.display = 'none';
+});
+
+const appSection = document.getElementById('app');
+const otherSections = document.querySelectorAll('section:not(#app)');
+const nav = document.getElementById('nav');
+const header = document.getElementById('header');
+const goHomeBtn = document.getElementById('goHomeBtn');
+const goToAppBtns = document.querySelectorAll('a[href="#app"], button[href="#app"]');
+
+goToAppBtns.forEach(btn => {
+    btn.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default behavior of the link
+        appSection.style.display = 'block'; // Show the app
+
+        otherSections.forEach(section => {
+            section.style.display = 'none';
+        });
+
+        nav.style.display = 'none';
+        goHomeBtn.style.display = 'block';
+    });
+});
+
+goHomeBtn.addEventListener('click', () => {
+    otherSections.forEach(section => {
+        section.style.display = 'block';
+    });
+
+    nav.style.display = 'block';
+    appSection.style.display = 'none';
+    goHomeBtn.style.display = 'none';
+});
