@@ -1,4 +1,3 @@
-// Elements references
 const tasksContainer = document.getElementById('tasks');
 const addTaskBtn = document.getElementById('addTaskBtn');
 const newTaskInput = document.getElementById('newTask');
