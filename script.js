@@ -27,12 +27,10 @@ let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
 let currentAccount = null;
 let tasks = [];
 
-// Save accounts to local storage
 const saveAccounts = () => {
     localStorage.setItem('accounts', JSON.stringify(accounts));
 };
 
-// Update UI for authentication status
 const updateAuthUI = () => {
     if (currentAccount) {
         loginInterface.style.display = 'none';
@@ -40,7 +38,7 @@ const updateAuthUI = () => {
         logoutBtn.style.display = 'inline-block';
         deleteAccountBtn.style.display = 'inline-block';
         switchAccountBtn.style.display = 'inline-block';
-        recoverPasswordBtn.style.display = 'none';  // Hide recover password when logged in
+        recoverPasswordBtn.style.display = 'none';
         newTaskInput.disabled = false;
         dueDateInput.disabled = false;
         addTaskBtn.disabled = false;
@@ -52,7 +50,7 @@ const updateAuthUI = () => {
         logoutBtn.style.display = 'none';
         deleteAccountBtn.style.display = 'none';
         switchAccountBtn.style.display = 'none';
-        recoverPasswordBtn.style.display = 'inline-block';  // Show recover password when not logged in
+        recoverPasswordBtn.style.display = 'inline-block';
         newTaskInput.disabled = true;
         dueDateInput.disabled = true;
         addTaskBtn.disabled = true;
@@ -65,7 +63,7 @@ const updateTaskUI = () => {
     if (tasks.length > 0) {
         tasks.forEach((task, index) => {
             const taskElement = document.createElement('div');
-            taskElement.className = 'task fadeIn'; // Add fadeIn class for fade-in animation
+            taskElement.className = 'task fadeIn';
             if (task.done) {
                 taskElement.classList.add('done');
             }
@@ -99,21 +97,17 @@ const updateTaskUI = () => {
             taskElement.addEventListener('drop', handleDrop);
             taskElement.addEventListener('dragend', handleDragEnd);
             tasksContainer.appendChild(taskElement);
-            // Apply slide-in animation to newly added task
             taskElement.classList.add('slideInFromLeft');
         });
     }
 };
 
-// Function to toggle the "done" state of a task
 const toggleTaskDone = (index) => {
     tasks[index].done = !tasks[index].done;
     updateTaskUI();
-    saveAccounts(); // Ensure changes are saved
+    saveAccounts();
 };
 
-// Add Task button event listener
-// Add Task button event listener
 addTaskBtn.addEventListener('click', () => {
     const description = newTaskInput.value.trim();
     let dueDate = dueDateInput.value;
@@ -123,14 +117,12 @@ addTaskBtn.addEventListener('click', () => {
         return;
     }
 
-    // Use current date if no due date is provided
     if (!dueDate) {
         const currentDate = new Date();
         const year = currentDate.getFullYear();
         let month = currentDate.getMonth() + 1;
         let day = currentDate.getDate();
 
-        // Add leading zero if month/day is single digit
         month = month < 10 ? '0' + month : month;
         day = day < 10 ? '0' + day : day;
 
@@ -145,20 +137,18 @@ addTaskBtn.addEventListener('click', () => {
 
     tasks.push(newTask);
     updateTaskUI();
-    saveAccounts(); // Ensure changes are saved
+    saveAccounts();
     
     newTaskInput.value = '';
     dueDateInput.value = '';
 });
 
-// Example function to delete a task
 const deleteTask = (index) => {
     tasks.splice(index, 1);
     updateTaskUI();
-    saveAccounts(); // Ensure changes are saved
+    saveAccounts();
 };
 
-// Example drag and drop handlers
 const handleDragStart = (event) => {
     event.dataTransfer.setData('text/plain', event.target.id);
     setTimeout(() => {
@@ -187,7 +177,6 @@ const handleDragEnd = (event) => {
     });
 };
 
-// Update account list UI
 const updateAccountListUI = () => {
     accountList.innerHTML = '';
     accounts.forEach((account, index) => {
@@ -202,7 +191,6 @@ const updateAccountListUI = () => {
     });
 };
 
-// Switch account
 switchAccountBtn.addEventListener('click', () => {
     const username = prompt('Enter the username of the account you want to switch to:');
     if (username === currentAccount.username) {
@@ -230,7 +218,6 @@ switchAccountBtn.addEventListener('click', () => {
     updateAccountListUI();
 });
 
-// Login
 loginBtn.addEventListener('click', () => {
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
@@ -249,22 +236,18 @@ loginBtn.addEventListener('click', () => {
     }
 });
 
-// Show sign-up interface
 showSignUpBtn.addEventListener('click', () => {
     loginInterface.style.display = 'none';
     signupInterface.style.display = 'block';
-    recoverPasswordBtn.style.display = 'none';  // Hide recover password in sign-up
+    recoverPasswordBtn.style.display = 'none';
 });
 
-// Cancel sign-up
 cancelSignUpBtn.addEventListener('click', () => {
     signupInterface.style.display = 'none';
     loginInterface.style.display = 'block';
-    recoverPasswordBtn.style.display = 'inline-block';  // Show recover password in login
+    recoverPasswordBtn.style.display = 'inline-block';
 });
 
-// Sign up
-// Sign up
 signUpBtn.addEventListener('click', () => {
     const username = signupUsernameInput.value.trim();
     const password = signupPasswordInput.value.trim();
@@ -308,13 +291,10 @@ signUpBtn.addEventListener('click', () => {
     alert('Account created successfully');
 });
 
-// Function to validate security answer
 const validateSecurityAnswer = (answer, password) => {
     return answer !== password;
 };
 
-
-// Logout
 logoutBtn.addEventListener('click', () => {
     currentAccount = null;
     tasks = [];
@@ -322,7 +302,6 @@ logoutBtn.addEventListener('click', () => {
     updateTaskUI();
 });
 
-// Delete account
 deleteAccountBtn.addEventListener('click', () => {
     if (!currentAccount) return;
 
@@ -338,7 +317,6 @@ deleteAccountBtn.addEventListener('click', () => {
     }
 });
 
-// Delete all accounts
 deleteAllAccountsBtn.addEventListener('click', () => {
     accounts = [];
     saveAccounts();
@@ -349,7 +327,6 @@ deleteAllAccountsBtn.addEventListener('click', () => {
     updateAccountListUI();
 });
 
-// Recover password
 recoverPasswordBtn.addEventListener('click', () => {
     const username = prompt('Enter your username:');
     const account = accounts.find(acc => acc.username === username);
@@ -376,13 +353,11 @@ recoverPasswordBtn.addEventListener('click', () => {
     }
 });
 
-// Update account status UI
 const updateAccountStatus = () => {
     const occupiedCount = accounts.length;
     accountStatus.textContent = `${occupiedCount}/${MAX_ACCOUNTS} accounts occupied`;
 };
 
-// Initial UI updates
 updateAuthUI();
 updateTaskUI();
 updateAccountListUI();
@@ -403,8 +378,8 @@ const goToAppBtns = document.querySelectorAll('a[href="#app"], button[href="#app
 
 goToAppBtns.forEach(btn => {
     btn.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent the default behavior of the link
-        appSection.style.display = 'block'; // Show the app
+        event.preventDefault();
+        appSection.style.display = 'block';
 
         otherSections.forEach(section => {
             section.style.display = 'none';
