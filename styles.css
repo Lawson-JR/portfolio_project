@@ -34,6 +34,20 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
+#goHomeBtn {
+    background-color: #3949ab;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#goHomeBtn:hover {
+    background-color: #303f9f;
+    transition: background-color 0.3s ease;
+}
+
 #intro {
     text-align: center;
     padding: 50px 20px;
@@ -65,6 +79,7 @@ header nav ul li a:hover {
     background-color: #3949ab;
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #intro button:hover {
@@ -114,8 +129,6 @@ header nav ul li a:hover {
     line-height: 1.6;
 }
 
-/* Styles for the app section */
-
 #app {
     width: 85%;
     max-width: 1200px;
@@ -130,7 +143,7 @@ header nav ul li a:hover {
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    display: none; /* Initially hide the app */
+    display: none;
 }
 
 .app-header {
@@ -155,6 +168,7 @@ header nav ul li a:hover {
     background-color: #3949ab;
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .app-header button:hover {
@@ -181,7 +195,7 @@ header nav ul li a:hover {
     background-color: #3949ab;
     color: #fff;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 #auth button:hover {
@@ -192,10 +206,6 @@ header nav ul li a:hover {
     padding: 20px;
     flex-grow: 1;
     overflow-y: auto;
-}
-
-#taskContainer h2 {
-    margin-bottom: 20px;
 }
 
 #taskInput {
@@ -218,6 +228,7 @@ header nav ul li a:hover {
     background-color: #3949ab;
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #taskInput button:hover {
@@ -228,10 +239,7 @@ header nav ul li a:hover {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-height: 200px;
-    overflow: auto;
 }
-
 
 .task {
     background-color: #e8eaf6;
@@ -240,6 +248,13 @@ header nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
+    cursor: move;
+    transition: background-color 0.3s ease;
+}
+
+.task:hover {
+    background-color: #dfe3f0;
 }
 
 .task h3 {
@@ -253,32 +268,209 @@ header nav ul li a:hover {
     background-color: #e53935;
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .task button:hover {
-    background-color: #d32f2f;
+    background-color: #c62828;
 }
 
-.task {
-    background-color: #e8eaf6;
+.task.done {
+    background-color: #c8e6c9;
+}
+
+.task.done:hover {
+    background-color: #a5d6a7;
+}
+
+#accountListContainer {
+    margin-bottom: 20px;
+}
+
+#accountList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#accountList li {
     padding: 10px;
+    background-color: #e8eaf6;
     border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    cursor: move;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.task.hide {
-    display: none;
-}
-
-.task.drag-over {
-    border: 2px dashed #3949ab;
+#accountList li:hover {
+    background-color: #dfe3f0;
 }
 
 .highlighted-account {
     background-color: blue !important;
     color: white !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+section {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    animation-delay: 0.3s; /* Delay each section's animation */
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#deleteAllAccountsBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e53935;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#deleteAllAccountsBtn:hover {
+    background-color: #c62828;
+    transform: scale(1.05);
+}
+
+#switchAccountBtn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3949ab;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#switchAccountBtn:hover {
+    background-color: #303f9f;
+    transform: scale(1.05);
+}
+
+#loginInterface,
+#signupInterface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#loginInterface input,
+#signupInterface input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#loginInterface button,
+#signupInterface button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3949ab;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#loginInterface button:hover,
+#signupInterface button:hover {
+    background-color: #303f9f;
+    transform: translateY(-3px);
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slideInFromLeft {
+    animation: slideInFromLeft 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slideInFromRight {
+    animation: slideInFromRight 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInUp {
+    animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInDown {
+    animation: fadeInDown 0.5s ease-in-out forwards;
+}
+
+/* Animation for Adding Tasks */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s ease-in-out forwards;
 }
