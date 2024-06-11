@@ -66,24 +66,42 @@ const updateTaskUI = () => {
     if (tasks.length > 0) {
         tasks.forEach((task, index) => {
             const taskElement = document.createElement('div');
-            taskElement.className = 'task';
+            taskElement.className = 'task fadeIn'; // Add fadeIn class for fade-in animation
             if (task.done) {
                 taskElement.classList.add('done');
             }
+            
+            // Check if the task is past the due date
+            const currentDate = new Date();
+            const dueDate = new Date(task.dueDate);
+            if (!task.done && dueDate < currentDate) {
+                taskElement.classList.add('uncompleted-date-passed');
+                taskElement.innerHTML = `
+                    <h3>${task.description}</h3>
+                    <p>Due: ${task.dueDate} (Date passed)</p>
+                    <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
+                    <input type="checkbox" class="done-checkbox" disabled>
+                    <label for="done-checkbox-${index}">Date passed</label>
+                `;
+            } else {
+                taskElement.innerHTML = `
+                    <h3>${task.description}</h3>
+                    <p>Due: ${task.dueDate}</p>
+                    <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
+                    <input type="checkbox" class="done-checkbox" ${task.done ? 'checked' : ''} onchange="toggleTaskDone(${index})">
+                    <label for="done-checkbox-${index}">${task.done ? 'Done' : 'Uncompleted'}</label>
+                `;
+            }
+
             taskElement.setAttribute('draggable', 'true');
             taskElement.id = `task-${index}`;
-            taskElement.innerHTML = `
-                <h3>${task.description}</h3>
-                <p>Due: ${task.dueDate}</p>
-                <button class="delete-btn" onclick="deleteTask(${index})">Delete</button>
-                <input type="checkbox" class="done-checkbox" ${task.done ? 'checked' : ''} onchange="toggleTaskDone(${index})">
-                <label for="done-checkbox-${index}">${task.done ? 'Done' : 'Uncompleted'}</label>
-            `;
             taskElement.addEventListener('dragstart', handleDragStart);
             taskElement.addEventListener('dragover', handleDragOver);
             taskElement.addEventListener('drop', handleDrop);
             taskElement.addEventListener('dragend', handleDragEnd);
             tasksContainer.appendChild(taskElement);
+            // Apply slide-in animation to newly added task
+            taskElement.classList.add('slideInFromLeft');
         });
     }
 };
@@ -247,6 +265,7 @@ cancelSignUpBtn.addEventListener('click', () => {
 });
 
 // Sign up
+// Sign up
 signUpBtn.addEventListener('click', () => {
     const username = signupUsernameInput.value.trim();
     const password = signupPasswordInput.value.trim();
@@ -254,12 +273,23 @@ signUpBtn.addEventListener('click', () => {
     const securityAnswer = signupSecurityAnswerInput.value.trim();
 
     if (!username || !password || !securityQuestion || !securityAnswer) {
-        alert('Please fill out all fields.');
+        alert('Please fill in all fields');
         return;
     }
 
-    if (accounts.find(account => account.username === username)) {
+    if (accounts.length >= MAX_ACCOUNTS) {
+        alert('Maximum number of accounts reached');
+        return;
+    }
+
+    const existingAccount = accounts.find(acc => acc.username === username);
+    if (existingAccount) {
         alert('Username already exists');
+        return;
+    }
+
+    if (!validateSecurityAnswer(securityAnswer, password) || !validateSecurityAnswer(securityQuestion, password)) {
+        alert('Security answer or question cannot be the same as the password');
         return;
     }
 
@@ -271,23 +301,19 @@ signUpBtn.addEventListener('click', () => {
         tasks: []
     };
 
-    if (accounts.length < MAX_ACCOUNTS) {
-        accounts.push(newAccount);
-        saveAccounts();
-        alert('Sign-up successful! Please log in to access your account.');
-        // Reset current account and display login interface
-        currentAccount = null;
-        tasks = [];
-        loginInterface.style.display = 'block';
-        signupInterface.style.display = 'none';
-        recoverPasswordBtn.style.display = 'inline-block';  // Show recover password in login
-        updateAuthUI();
-        updateAccountStatus();
-        updateAccountListUI();
-    } else {
-        alert('Maximum number of accounts reached.');
-    }
+    accounts.push(newAccount);
+    saveAccounts();
+    updateAccountListUI();
+    signupInterface.style.display = 'none';
+    loginInterface.style.display = 'block';
+    alert('Account created successfully');
 });
+
+// Function to validate security answer
+const validateSecurityAnswer = (answer, password) => {
+    return answer !== password;
+};
+
 
 // Logout
 logoutBtn.addEventListener('click', () => {
@@ -295,65 +321,74 @@ logoutBtn.addEventListener('click', () => {
     tasks = [];
     updateAuthUI();
     updateTaskUI();
-    updateAccountStatus();
-    updateAccountListUI();
 });
 
 // Delete account
 deleteAccountBtn.addEventListener('click', () => {
-    if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
-        accounts = accounts.filter(account => account !== currentAccount);
+    if (!currentAccount) return;
+
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+    if (index !== -1) {
+        accounts.splice(index, 1);
         saveAccounts();
         currentAccount = null;
         tasks = [];
         updateAuthUI();
         updateTaskUI();
-        updateAccountStatus();
         updateAccountListUI();
     }
 });
 
 // Delete all accounts
 deleteAllAccountsBtn.addEventListener('click', () => {
-    if (confirm('Are you sure you want to delete all accounts? This action cannot be undone.')) {
-        accounts = [];
-        saveAccounts();
-        currentAccount = null;
-        tasks = [];
-        updateAuthUI();
-        updateTaskUI();
-        updateAccountStatus();
-        updateAccountListUI();
-    }
+    accounts = [];
+    saveAccounts();
+    currentAccount = null;
+    tasks = [];
+    updateAuthUI();
+    updateTaskUI();
+    updateAccountListUI();
 });
 
-// Recover password process
+// Recover password
 recoverPasswordBtn.addEventListener('click', () => {
     const username = prompt('Enter your username:');
-    const account = accounts.find(account => account.username === username);
+    const account = accounts.find(acc => acc.username === username);
 
-    if (account) {
-        const answer = prompt(account.securityQuestion);
-        if (answer === account.securityAnswer) {
-            alert(`Your password is: ${account.password}`);
-        } else {
-            alert('Incorrect answer to the security question.');
-        }
+    if (!account) {
+        alert('No account found with that username');
+        return;
+    }
+
+    const securityAnswer = prompt(account.securityQuestion);
+    if (securityAnswer !== account.securityAnswer) {
+        alert('Incorrect answer to the security question');
+        return;
+    }
+
+    const changePassword = confirm('Would you like to change your password?');
+    if (changePassword) {
+        const newPassword = prompt('Enter your new password:');
+        account.password = newPassword;
+        saveAccounts();
+        alert('Password changed successfully');
     } else {
-        alert('No account found with that username.');
+        alert(`Your password is: ${account.password}`);
     }
 });
 
-// Update account status
+// Update account status UI
 const updateAccountStatus = () => {
-    accountStatus.textContent = `${accounts.length}/${MAX_ACCOUNTS} accounts occupied`;
+    const occupiedCount = accounts.length;
+    accountStatus.textContent = `${occupiedCount}/${MAX_ACCOUNTS} accounts occupied`;
 };
 
-// Initial UI setup
+// Initial UI updates
 updateAuthUI();
-updateAccountStatus();
-updateAccountListUI();
 updateTaskUI();
+updateAccountListUI();
+updateAccountStatus();
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const goHomeBtn = document.getElementById('goHomeBtn');
