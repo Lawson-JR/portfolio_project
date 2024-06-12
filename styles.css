@@ -5,10 +5,12 @@
     padding: 0;
 }
 
+/* Body styles */
 body {
     background-color: #f0f4f8;
 }
 
+/* Header styles */
 header {
     background-color: #5c6bc0;
     color: #fff;
@@ -48,6 +50,7 @@ header nav ul li a:hover {
     transition: background-color 0.3s ease;
 }
 
+/* Introduction section styles */
 #intro {
     text-align: center;
     padding: 50px 20px;
@@ -86,6 +89,7 @@ header nav ul li a:hover {
     background-color: #303f9f;
 }
 
+/* Features section styles */
 #features {
     padding: 50px 20px;
     background-color: #fff;
@@ -112,6 +116,7 @@ header nav ul li a:hover {
     margin-bottom: 10px;
 }
 
+/* About section styles */
 #about {
     padding: 50px 20px;
     background-color: #e8eaf6;
@@ -129,6 +134,7 @@ header nav ul li a:hover {
     line-height: 1.6;
 }
 
+/* Application container styles */
 #app {
     width: 85%;
     max-width: 1200px;
@@ -146,6 +152,7 @@ header nav ul li a:hover {
     display: none;
 }
 
+/* App header styles */
 .app-header {
     background: #5c6bc0;
     color: #fff;
@@ -175,6 +182,7 @@ header nav ul li a:hover {
     background-color: #303f9f;
 }
 
+/* Authentication form styles */
 #auth {
     display: flex;
     flex-direction: column;
@@ -195,13 +203,14 @@ header nav ul li a:hover {
     background-color: #3949ab;
     color: #fff;
     cursor: pointer;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 #auth button:hover {
     background-color: #303f9f;
 }
 
+/* Task container styles */
 #taskContainer {
     padding: 20px;
     flex-grow: 1;
@@ -235,6 +244,7 @@ header nav ul li a:hover {
     background-color: #303f9f;
 }
 
+/* Task list styles */
 #tasks {
     display: flex;
     flex-direction: column;
@@ -283,6 +293,7 @@ header nav ul li a:hover {
     background-color: #a5d6a7;
 }
 
+/* Account list styles */
 #accountListContainer {
     margin-bottom: 20px;
 }
@@ -310,6 +321,7 @@ header nav ul li a:hover {
     color: white !important;
 }
 
+/* Keyframes for fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -323,18 +335,21 @@ header nav ul li a:hover {
     animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Section fade-in animation */
 section {
     opacity: 0;
     animation: fadeIn 0.5s ease-in-out forwards;
     animation-delay: 0.3s; /* Delay each section's animation */
 }
 
+/* Button hover effect */
 button:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Delete all accounts button styles */
 #deleteAllAccountsBtn {
     padding: 10px 20px;
     border: none;
@@ -350,6 +365,7 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Switch account button styles */
 #switchAccountBtn {
     padding: 10px 20px;
     border: none;
@@ -365,6 +381,7 @@ button:hover {
     transform: scale(1.05);
 }
 
+/* Login and signup interfaces styles */
 #loginInterface,
 #signupInterface {
     display: flex;
@@ -399,6 +416,7 @@ button:hover {
     transform: translateY(-3px);
 }
 
+/* Slide-in animations */
 @keyframes slideInFromLeft {
     from {
         transform: translateX(-100%);
@@ -429,6 +447,7 @@ button:hover {
     animation: slideInFromRight 0.5s ease-in-out forwards;
 }
 
+/* Fade-in up and down animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -459,7 +478,7 @@ button:hover {
     animation: fadeInDown 0.5s ease-in-out forwards;
 }
 
-/* Animation for Adding Tasks */
+/* Animation for adding tasks */
 @keyframes fadeIn {
     from {
         opacity: 0;
