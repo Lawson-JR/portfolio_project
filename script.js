@@ -1,3 +1,4 @@
+// DOM element references
 const tasksContainer = document.getElementById('tasks');
 const addTaskBtn = document.getElementById('addTaskBtn');
 const newTaskInput = document.getElementById('newTask');
@@ -27,10 +28,12 @@ let accounts = JSON.parse(localStorage.getItem('accounts')) || [];
 let currentAccount = null;
 let tasks = [];
 
+// Save accounts to local storage
 const saveAccounts = () => {
     localStorage.setItem('accounts', JSON.stringify(accounts));
 };
 
+// Update the UI based on authentication status
 const updateAuthUI = () => {
     if (currentAccount) {
         loginInterface.style.display = 'none';
@@ -57,7 +60,7 @@ const updateAuthUI = () => {
     }
 };
 
-// Function to update the task UI
+// Update the task UI
 const updateTaskUI = () => {
     tasksContainer.innerHTML = '';
     if (tasks.length > 0) {
@@ -102,12 +105,14 @@ const updateTaskUI = () => {
     }
 };
 
+// Toggle the done status of a task
 const toggleTaskDone = (index) => {
     tasks[index].done = !tasks[index].done;
     updateTaskUI();
     saveAccounts();
 };
 
+// Add new task
 addTaskBtn.addEventListener('click', () => {
     const description = newTaskInput.value.trim();
     let dueDate = dueDateInput.value;
@@ -143,12 +148,14 @@ addTaskBtn.addEventListener('click', () => {
     dueDateInput.value = '';
 });
 
+// Delete a task
 const deleteTask = (index) => {
     tasks.splice(index, 1);
     updateTaskUI();
     saveAccounts();
 };
 
+// Handle drag start event
 const handleDragStart = (event) => {
     event.dataTransfer.setData('text/plain', event.target.id);
     setTimeout(() => {
@@ -156,11 +163,13 @@ const handleDragStart = (event) => {
     }, 0);
 };
 
+// Handle drag over event
 const handleDragOver = (event) => {
     event.preventDefault();
     event.target.classList.add('drag-over');
 };
 
+// Handle drop event
 const handleDrop = (event) => {
     event.preventDefault();
     event.target.classList.remove('drag-over');
@@ -169,6 +178,7 @@ const handleDrop = (event) => {
     tasksContainer.insertBefore(draggable, event.target);
 };
 
+// Handle drag end event
 const handleDragEnd = (event) => {
     event.target.classList.remove('hide');
     const tasks = document.querySelectorAll('.task');
@@ -177,6 +187,7 @@ const handleDragEnd = (event) => {
     });
 };
 
+// Update the account list UI
 const updateAccountListUI = () => {
     accountList.innerHTML = '';
     accounts.forEach((account, index) => {
@@ -191,6 +202,7 @@ const updateAccountListUI = () => {
     });
 };
 
+// Switch account
 switchAccountBtn.addEventListener('click', () => {
     const username = prompt('Enter the username of the account you want to switch to:');
     if (username === currentAccount.username) {
@@ -218,6 +230,7 @@ switchAccountBtn.addEventListener('click', () => {
     updateAccountListUI();
 });
 
+// Login account
 loginBtn.addEventListener('click', () => {
     const username = usernameInput.value.trim();
     const password = passwordInput.value.trim();
@@ -236,18 +249,21 @@ loginBtn.addEventListener('click', () => {
     }
 });
 
+// Show sign-up form
 showSignUpBtn.addEventListener('click', () => {
     loginInterface.style.display = 'none';
     signupInterface.style.display = 'block';
     recoverPasswordBtn.style.display = 'none';
 });
 
+// Cancel sign-up process
 cancelSignUpBtn.addEventListener('click', () => {
     signupInterface.style.display = 'none';
     loginInterface.style.display = 'block';
     recoverPasswordBtn.style.display = 'inline-block';
 });
 
+// Sign-up new account
 signUpBtn.addEventListener('click', () => {
     const username = signupUsernameInput.value.trim();
     const password = signupPasswordInput.value.trim();
@@ -291,10 +307,12 @@ signUpBtn.addEventListener('click', () => {
     alert('Account created successfully');
 });
 
+// Validate security answer
 const validateSecurityAnswer = (answer, password) => {
     return answer !== password;
 };
 
+// Logout account
 logoutBtn.addEventListener('click', () => {
     currentAccount = null;
     tasks = [];
@@ -302,6 +320,7 @@ logoutBtn.addEventListener('click', () => {
     updateTaskUI();
 });
 
+// Delete current account
 deleteAccountBtn.addEventListener('click', () => {
     if (!currentAccount) return;
 
@@ -317,6 +336,7 @@ deleteAccountBtn.addEventListener('click', () => {
     }
 });
 
+// Delete all accounts
 deleteAllAccountsBtn.addEventListener('click', () => {
     accounts = [];
     saveAccounts();
@@ -327,6 +347,7 @@ deleteAllAccountsBtn.addEventListener('click', () => {
     updateAccountListUI();
 });
 
+// Recover password
 recoverPasswordBtn.addEventListener('click', () => {
     const username = prompt('Enter your username:');
     const account = accounts.find(acc => acc.username === username);
@@ -353,22 +374,25 @@ recoverPasswordBtn.addEventListener('click', () => {
     }
 });
 
+// Update account status
 const updateAccountStatus = () => {
     const occupiedCount = accounts.length;
     accountStatus.textContent = `${occupiedCount}/${MAX_ACCOUNTS} accounts occupied`;
 };
 
+// Initial UI updates
 updateAuthUI();
 updateTaskUI();
 updateAccountListUI();
 updateAccountStatus();
 
-
+// Handle initial DOM load
 document.addEventListener("DOMContentLoaded", function() {
     const goHomeBtn = document.getElementById('goHomeBtn');
     goHomeBtn.style.display = 'none';
 });
 
+// Navigation and section handling
 const appSection = document.getElementById('app');
 const otherSections = document.querySelectorAll('section:not(#app)');
 const nav = document.getElementById('nav');
