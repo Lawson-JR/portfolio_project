@@ -1,6 +1,6 @@
 Task Management and User Authentication System
 --
-This project is a simple web-based task management application with user authentication. It allows multiple users to manage their tasks after logging in or creating a new account. The app supports adding, deleting, and marking tasks as complete, along with secure account creation, login, logout, and password recovery functionalities.
+This project is a simple web-based task management application with user authentication. It allows multiple users to manage their tasks after logging in or creating a new account. The app supports adding, deleting, and marking tasks as complete, along with secure account creation, login, and logout functionalities.
 
 Features
 User Authentication:
