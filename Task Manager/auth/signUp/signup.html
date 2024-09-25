@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager | SignUp Form</title>
+    <!-- Link to external CSS for styling the form and page layout -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="container"> <!-- Main container that wraps the entire signup form and the display section -->
+        <div id="signUp"> <!-- Sign-up form section -->
+            <div class="head"> <!-- Header for sign-up form with a welcome message -->
+                <h2>Hello!</h2>
+                <p>Please signup to continue</p>
+            </div>
+            <!-- Sign-up form with various inputs for username, full name, password, and confirmation -->
+            <form action="#">
+                <div>
+                    <!-- Username input field with a label and a max character limit of 15 -->
+                    <label for="username" class="name">Username</label>
+                    <input type="text" name="username" class="border" id="username" placeholder="Lawson-JR" maxlength="15" autofocus>
+                </div>
+                <div>
+                    <!-- Full name input field with a max character limit of 25 -->
+                    <label for="fullname" class="name">Full Name</label>
+                    <input type="text" name="fullname" class="border" id="fullname" placeholder="Lawson Ishikaku" maxlength="25">
+                </div>
+                <div>
+                    <!-- Password input with visibility toggle (img element as an eye icon) -->
+                    <label for="password">Password</label>
+                    <span class="passwordInput">
+                        <input type="password" name="password" id="password" placeholder="Password" required minlength="10">
+                        <!-- Image icon used to toggle the visibility of the password -->
+                        <img class="conceal one" src="images/hidden.png" alt="hidden">
+                    </span>
+                </div>
+                <div>
+                    <!-- Confirm password input with visibility toggle -->
+                    <label for="confirm">Confirm Password</label>
+                    <span class="passwordInput">
+                        <input type="password" name="confirm" id="confirm" placeholder="Confirm Password" required minlength="10">
+                        <!-- Image icon to toggle the visibility of confirm password -->
+                        <img class="conceal two" src="images/hidden.png" alt="hidden">
+                    </span>
+                </div>
+                <!-- Submit button for signing up -->
+                <button type="submit" id="submit">Sign Up</button>
+            </form>
+        </div>
+        
+        <!-- Information display section on the right side with an overview of the Task Manager and a link to login -->
+        <div id="display">
+            <h1>Task Manager</h1>
+            <p>Organize and prioritize tasks effectively and efficiently. Achieve daily goals by balancing tight schedules and meeting up deadlines.</p>
+            <!-- Link to the login page for existing users -->
+            <a id="logIn" href="../logIn/login.html">Already have an account? Sign In!</a>
+        </div>
+    </div>
+
+    <!-- Link to the external JavaScript file for handling the form functionality (e.g., password visibility toggling) -->
+    <script src="script.js"></script>
+</body>
+</html>

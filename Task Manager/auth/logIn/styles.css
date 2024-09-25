@@ -1,0 +1,126 @@
+/* Prevent all elements from being selected by the user and set a smooth transition effect for all elements */
+* {
+    user-select: none;
+    font-family: "Garet"; /* Use the "Garet" font family for all elements */
+    transition: 0.3s all; /* Apply a 0.3s transition to all properties */
+}
+
+/* Set body to full viewport height, remove margins and padding, and align content centrally */
+body {
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #dadada; /* Light gray background color */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+/* Main container that holds both the login and display sections, splitting them 50/50 */
+.container {
+    width: 70%; /* 70% width of the viewport */
+    height: 80%; /* 80% height of the viewport */
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: space-between; /* Space between login and display sections */
+}
+
+/* Style both the login and display sections equally, each taking 50% of the container */
+#login, #display {
+    width: 50%; /* Each section takes 50% of the container width */
+}
+
+/* Login section styling */
+#login {
+    background-color: white; /* White background for login form */
+    box-shadow: -5px 7px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    padding: 30px; /* 30px padding inside the login box */
+    display: flex; /* Flexbox for vertical alignment */
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+/* Styling for the login form heading */
+#login h2 {
+    font-size: 2em; /* Set a large font size for the heading */
+    text-align: center; /* Center-align the heading text */
+}
+
+/* Styling all input fields in the login form */
+#login input {
+    display: block; /* Make input fields block-level elements */
+    margin: 0 auto; /* Center the input fields horizontally */
+    margin-bottom: 20px; /* Add space between inputs */
+    padding: 15px 20px; /* Padding inside input fields for a larger clickable area */
+    border: none; /* Remove default borders */
+    outline: none; /* Remove outline on focus */
+    border-radius: 5px; /* Round the corners of the input fields */
+}
+
+/* Set specific styles for the username and password input fields */
+#username, 
+#password {
+    color: black; /* Text color set to black */
+    width: 80%; /* Input fields take 80% of their container's width */
+    background-color: #dadada; /* Light gray background color */
+}
+
+/* Styling for the login button */
+input[type="button"] {
+    width: 90%; /* Button takes 90% of its container's width */
+    background: #333; /* Dark gray background color */
+    color: white; /* White text color */
+}
+
+/* Add a hover effect to the login button */
+input[type="button"]:hover {
+    background-color: rgba(0, 0, 0, .9); /* Darker shade on hover */
+}
+
+/* Styling for the display section where the welcome message and sign-up button are */
+#display {
+    background-color: #333; /* Dark gray background color */
+    color: white; /* White text color */
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+}
+
+/* Styling the heading inside the display section */
+#display h2 {
+    font-family: "Changa"; /* Use "Changa" font for the heading */
+    font-size: 1.7em; /* Set the font size slightly smaller than in the login section */
+    margin-bottom: -15px; /* Move heading closer to the paragraph */
+    letter-spacing: 2px; /* Increase space between letters */
+}
+
+/* Paragraph text styling inside the display section */
+p {
+    font-size: 15px; /* Set the font size for the paragraph text */
+    letter-spacing: 1px; /* Add space between characters */
+    line-height: 25px; /* Set space between lines of text */
+    width: 90%; /* Limit the paragraph width to 90% of the container */
+    text-align: center; /* Center-align the paragraph text */
+}
+
+/* Styling for the button inside the display section */
+#display button {
+    color: inherit; /* Inherit text color from the parent (white) */
+    background-color: rgba(0, 0, 0, .1); /* Semi-transparent background */
+    border: none; /* Remove button border */
+    border-radius: 20px; /* Round the corners of the button */
+    outline: none; /* Remove button outline */
+    padding: 15px 20px; /* Add padding inside the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Add a hover effect to the sign-up button */
+#display button:hover {
+    background-color: rgba(0, 0, 0, .9); /* Darken the button background on hover */
+}
+
+/* Global anchor tag styling to keep text white and remove default underline */
+a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from links */
+}
