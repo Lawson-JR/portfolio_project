@@ -54,7 +54,7 @@ You can view the slides presentation for this project [here](<https://docs.googl
 
 ## Video Presentation
 
-Watch the video presentation of this project [here](<insert-your-video-link>).
+Watch the video presentation of this project [here](<https://drive.google.com/file/d/1GQ-Usfj8D0ODLdNz4s4EO885ZrVGDjqW/view?usp=drive_link>).
 
 ## Contact
 
