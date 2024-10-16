@@ -31,7 +31,8 @@ This is a **game eCommerce frontend app** built with **React**, **Redux**, **Tai
 - **LocalStorage Management**: User data, cart, and favorites are stored in the browser's localStorage to persist between sessions. No sensitive information (e.g., passwords) is stored in localStorage due to its limitations.
 
 ## Project Presentation
-You can view the project presentation on [Google Slides: Project Presentation](https://docs.google.com/presentation/d/17qyPVCzxtGsOxNg1qufGMfSXL5yHhzErH7Kl1eAXhQU/edit?usp=sharing)
+- You can view the slides presentation on [Google Slides: Project Presentation](https://docs.google.com/presentation/d/17qyPVCzxtGsOxNg1qufGMfSXL5yHhzErH7Kl1eAXhQU/edit?usp=sharing)
+- You can view the [video demo presentation](https://drive.google.com/file/d/1GQ-Usfj8D0ODLdNz4s4EO885ZrVGDjqW/view?usp=drive_link)
 
 ## Future Improvements
 - **Backend Integration**: Add a backend for secure user authentication, order processing, and dynamic content.
