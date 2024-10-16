@@ -22,3 +22,22 @@ This is a **game eCommerce frontend app** built with **React**, **Redux**, **Tai
    ```bash
    git clone https://github.com/Lawson-JR/portfolio_project.git
    cd portfolio_project
+
+## Usage
+- **Browse Games**: On the home page, view the available games. Use the search bar, filters, and sorting to find specific games.
+- **Login/Signup**: Create a user account or log in. This will store your user session in localStorage.
+- **Add to Cart** : Select games to add to your cart. The cart can be accessed from the top right of the page.
+- **Favorites**: Mark games as favorites to save them for later.
+- **LocalStorage Management**: User data, cart, and favorites are stored in the browser's localStorage to persist between sessions. No sensitive information (e.g., passwords) is stored in localStorage due to its limitations.
+
+## Project Presentation
+You can view the project presentation on [Google Slides: Project Presentation](https://docs.google.com/presentation/d/17qyPVCzxtGsOxNg1qufGMfSXL5yHhzErH7Kl1eAXhQU/edit?usp=sharing)
+
+## Future Improvements
+- **Backend Integration**: Add a backend for secure user authentication, order processing, and dynamic content.
+- **Expanded Features**: Implement user profiles, purchase history, and a recommendation engine.
+
+Contact
+For any inquiries or feedback, feel free to reach out via email:
+
+Email: lawson5n2010@gmail.com
