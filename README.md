@@ -32,7 +32,7 @@ This is a **game eCommerce frontend app** built with **React**, **Redux**, **Tai
 
 ## Project Presentation
 - You can view the slides presentation on [Google Slides: Project Presentation](https://docs.google.com/presentation/d/17qyPVCzxtGsOxNg1qufGMfSXL5yHhzErH7Kl1eAXhQU/edit?usp=sharing)
-- You can view the [video demo presentation](https://drive.google.com/file/d/1GQ-Usfj8D0ODLdNz4s4EO885ZrVGDjqW/view?usp=drive_link)
+- You can view the [video demo presentation](https://google.com)
 
 ## Future Improvements
 - **Backend Integration**: Add a backend for secure user authentication, order processing, and dynamic content.
