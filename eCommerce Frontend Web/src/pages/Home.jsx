@@ -13,7 +13,6 @@ const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const products = useSelector((state) => state.product.products);
-x
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isFadingOut, setIsFadingOut] = useState(false);
 
