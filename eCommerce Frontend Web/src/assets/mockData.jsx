@@ -39,6 +39,15 @@ import redDeadRedemption2 from "./images/red-dead-redemption-2.jpg"
 import pgaTour2k23 from "./images/pga-tour-2k23.jpg"
 import doomEternal from "./images/doom-eternal.png" 
 import horizonZeroDawn from "./images/horizon-zero-dawn.jpg"
+import f12023 from "./images/f12023.jpg"
+import eldenRing from "./images/eldenRing.jpg"
+import lifeIsStrangeTrueColors from "./images/lifeIsStrangeTrueColors.jpg"
+import uncharted4 from "./images/uncharted4.jpg"
+import cyberpunk2077 from "./images/cyberpunk2077.jpg"
+import twoPointHospital from "./images/twoPointHospital.jpg"
+import marvelSpidermanRemastered from "./images/marvelSpidermanRemastered.jpg"
+import dragonQuestXI from "./images/dragonQuestXI.jpg"
+
 
 export const Categories = [
     "Action",
@@ -95,14 +104,14 @@ export const mockData = [
     { id: 38, image: redDeadRedemption2, name: "Red Dead Redemption 2", price: "59.99", genre: "Action/Adventure", description: "Live the outlaw life in this sprawling open-world western."},
     { id: 39, image: pgaTour2k23, name: "PGA Tour 2K23", price: "59.99", genre: "Sports", description: "Master the game of golf with realistic mechanics and courses."},
     { id: 40, image: doomEternal, name: "Doom Eternal", price: "39.99", genre: "Action", description: "Battle the forces of hell in this fast-paced first-person shooter."},
-    { id: 41, image: "", name: "F1 2023", price: "59.99", genre: "Sports", description: "Experience the adrenaline of Formula 1 racing."},
-    { id: 42, image: "", name: "Elden Ring", price: "59.99", genre: "R.P.G", description: "Explore a vast open world filled with danger in this dark fantasy RPG."},
-    { id: 43, image: "", name: "Life is Strange: True Colors", price: "39.99", genre: "Adventure", description: "Discover the power of empathy in this emotional narrative adventure."},
-    { id: 44, image: "", name: "Uncharted 4: A Thief's End", price: "19.99", genre: "Adventure", description: "Follow Nathan Drake on one last adventure in search of lost treasure."},
-    { id: 45, image: "", name: "Cyberpunk 2077", price: "59.99", genre: "R.P.G", description: "Explore a dystopian future in this sprawling open-world RPG."},
-    { id: 46, image: "", name: "Two Point Hospital", price: "29.99", genre: "Simulation", description: "Build and manage your own hospital in this quirky simulation game."},
-    { id: 47, image: "", name: "Monster Hunter: World", price: "29.99", genre: "R.P.G", description: "Hunt down massive monsters in an expansive open world."},
-    { id: 48, image: "", name: "Dragon Quest XI", price: "39.99", genre: "R.P.G", description: "Embark on a journey to save the world in this classic RPG."},
+    { id: 41, image: f12023, name: "F1 2023", price: "59.99", genre: "Sports", description: "Experience the adrenaline of Formula 1 racing."},
+    { id: 42, image: eldenRing, name: "Elden Ring", price: "59.99", genre: "R.P.G", description: "Explore a vast open world filled with danger in this dark fantasy RPG."},
+    { id: 43, image: lifeIsStrangeTrueColors, name: "Life is Strange: True Colors", price: "39.99", genre: "Adventure", description: "Discover the power of empathy in this emotional narrative adventure."},
+    { id: 44, image: cyberpunk2077, name: "Cyberpunk 2077", price: "59.99", genre: "R.P.G", description: "Explore a dystopian future in this sprawling open-world RPG."},
+    { id: 45, image: uncharted4, name: "Uncharted 4: A Thief's End", price: "19.99", genre: "Adventure", description: "Follow Nathan Drake on one last adventure in search of lost treasure."},
+    { id: 46, image: twoPointHospital, name: "Two Point Hospital", price: "29.99", genre: "Simulation", description: "Build and manage your own hospital in this quirky simulation game."},
+    { id: 47, image: marvelSpidermanRemastered, name: "Marvel's Spider-Man Remastered", price: "29.99", genre: "Action-Adventure", description: "Swing through the Marvel Universe as Spider-Man and protect New York City from iconic villains."},
+    { id: 48, image: dragonQuestXI, name: "Dragon Quest XI", price: "39.99", genre: "R.P.G", description: "Embark on a journey to save the world in this classic RPG."},
     { id: 49, image: "", name: "MLB The Show 23", price: "59.99", genre: "Sports", description: "Step onto the diamond in the most realistic baseball simulation."},
     { id: 50, image: "", name: "Mass Effect Legendary Edition", price: "59.99", genre: "R.P.G", description: "Relive Commander Shepard's epic journey across the galaxy."},
     { id: 51, image: "", name: "Dark Souls III", price: "39.99", genre: "R.P.G", description: "Survive a challenging, dark fantasy world in this action RPG."},
