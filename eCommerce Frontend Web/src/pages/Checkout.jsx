@@ -1,0 +1,336 @@
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import emptyCart from "../assets/images/empty-folder.png";
+import { useNavigate } from 'react-router-dom'; 
+import { selectCartItems, selectTotalAmount, selectTotalQuantity } from '../redux/cartSlice';
+
+const states = [
+    {value:'', label:'Select State'},
+    {value:'AB', label:'Abia'},
+    {value:'AD', label:'Adamawa'},
+    {value:'AK', label:'Akwa Ibom'},
+    {value:'AN', label:'Anambara'},
+    {value:'BA', label:'Bauchi'},
+    {value:'BY', label:'Bayelsa'},
+    {value:'BE', label:'Benue'},
+    {value:'BO', label:'Borno'},
+    {value:'CR', label:'Cross River'},
+    {value:'DE', label:'Delta'},
+    {value:'EB', label:'Ebonyi'},
+    {value:'ED', label:'Edo'},
+    {value:'EK', label:'Ekiti'},
+    {value:'EN', label:'Enugu'},
+    {value:'GO', label:'Gombe'},
+    {value:'IM', label:'Imo'},
+    {value:'JI', label:'Jigawa'},
+    {value:'KD', label:'Kaduna'},
+    {value:'KN', label:'Kano'},
+    {value:'KT', label:'Katsina'},
+    {value:'KE', label:'Kebbi'},
+    {value:'KO', label:'Kogi'},
+    {value:'KW', label:'Kwara'},
+    {value:'LA', label:'Lagos'},
+    {value:'NA', label:'Nasarawa'},
+    {value:'NI', label:'Niger'},
+    {value:'OG', label:'Ogun'},
+    {value:'ON', label:'Ondo'},
+    {value:'OS', label:'Osun'},
+    {value:'OY', label:'Oyo'},
+    {value:'PL', label:'Plateau'},
+    {value:'RI', label:'Rivers'},
+    {value:'SO', label:'Sokoto'},
+    {value:'TA', label:'Taraba'},
+    {value:'YO', label:'Yobe'},
+    {value:'ZA', label:'Zamfara'}
+];
+
+const Checkout = () => {
+    const cartItems = useSelector(selectCartItems);
+    const totalAmount = useSelector(selectTotalAmount);
+    const totalQuantity = useSelector(selectTotalQuantity);
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
+    const today = new Date().toISOString().split("T")[0];
+    
+    // Fetch the current user's email (from localStorage or Redux)
+    const [userEmail, setUserEmail] = useState('');
+    useEffect(() => {
+        const currentUserEmail = localStorage.getItem("currentUserEmail"); // Assuming you store email here
+        setUserEmail(currentUserEmail || '');
+    }, []);
+
+    const [formData, setFormData] = useState({
+        email: userEmail,
+        phone: '+234',
+        firstName: '',
+        lastName: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        country: 'Nigeria',
+        cardName: '',
+        cardNumber: '',
+        expiryDate: '',
+        cvv: '',
+    });
+
+    const handleInputChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent the form from submitting
+    
+        // Validate the state selection
+        if (formData.state === '') {
+            setError('Please select a state');
+            return; // Prevent form submission if validation fails
+        }
+    
+        setError(''); // Clear the error if the state is valid
+    
+        // Prepare cart details to save in localStorage
+        const cartDetails = {
+            formData,
+            cartItems,
+            totalQuantity, // Include total quantity
+            totalAmount,   // Include total amount
+        };
+    
+        // Navigate to the confirmation page with cart details
+        navigate('/confirmation', { state: cartDetails });
+    };    
+
+    const handlePhoneChange = (e) => {
+        const inputValue = e.target.value;
+    
+        // Remove all non-digit characters except for the + sign and space
+        const cleanedValue = inputValue.replace(/[^\d+ ]/g, '');
+    
+        // Only allow starting input with +234
+        if (cleanedValue.startsWith('+234')) {
+            // Remove +234 and keep only digits
+            const digits = cleanedValue.replace(/\D/g, '').slice(3); // Keep only digits after +234
+            
+            // Format the phone number
+            let formattedNumber = '+234 ';
+            
+            // Add spaces as needed based on the digit length
+            if (digits.length > 0) {
+                formattedNumber += digits.slice(0, 3); // First 3 digits
+            }
+            if (digits.length > 3) {
+                formattedNumber += ' ' + digits.slice(3, 7); // Next 4 digits
+            }
+            if (digits.length > 7) {
+                formattedNumber += ' ' + digits.slice(7, 10); // Next 3 digits (up to 10 total)
+            }
+            
+            // Update the state with the formatted phone number
+            setFormData({ ...formData, phone: formattedNumber.trim() });
+            } else {
+                // If the user tries to remove the +234, keep it intact
+            setFormData({ ...formData, phone: '+234 ' });
+        }
+    };            
+
+    return (
+        <div className="py-10 bg-gray-700 font-bahnschrift min-h-screen px-4 md:px-16 lg:px-16">
+            {cartItems.length > 0 ? (
+                <div className='flex justify-center'>
+                    {/* Checkout Form Section - Left Side */}
+                    <div className="bg-gray-800 p-5 rounded-lg text-white" style={{
+                        "width": "75%"
+                    }}>
+                        <h3 className="text-lg font-semibold pb-2 border-b mb-4">Checkout Information</h3>
+
+                        {/* Customer Information */}
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-6">
+                                <label className="block text-sm mb-2">Email <span className="text-red-500">*</span></label>
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    placeholder='johndoe@something.com'
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                    required
+                                />
+                            </div>
+
+                            <div className="mb-6">
+                                <label className="block text-sm mb-2">Phone Number <span className="text-red-500">*</span></label>
+                                <input 
+                                    type="tel" 
+                                    name="phone"
+                                    placeholder='e.g +234 567 8901 230'
+                                    value={formData.phone}
+                                    onChange={handlePhoneChange}
+                                    className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                    required
+                                />
+                            </div>
+
+                            {/* Shipping Information */}
+                            <h3 className="text-lg font-semibold pb-2 border-b mb-4">Shipping Information</h3>
+                            <div className="mb-6 grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm mb-2">First Name <span className="text-red-500">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        name="firstName"
+                                        placeholder='John'
+                                        value={formData.firstName}
+                                        onChange={handleInputChange}
+                                        className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm mb-2">Last Name <span className="text-red-500">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        name="lastName"
+                                        placeholder='Doe'
+                                        value={formData.lastName}
+                                        onChange={handleInputChange}
+                                        className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="mb-6">
+                                <label className="block text-sm mb-2">Address <span className="text-red-500">*</span></label>
+                                <input 
+                                    type="text" 
+                                    name="address"
+                                    placeholder='e.g Main Street, 101'
+                                    value={formData.address}
+                                    onChange={handleInputChange}
+                                    className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                    required
+                                />
+                            </div>
+
+                            <div className="mb-6 grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm mb-2.5">
+                                        State <span className="text-red-500">*</span> {/* Add asterisk for required field */}
+                                    </label>
+                                    <div className="relative">
+                                        <select 
+                                            name="state"
+                                            value={formData.state}
+                                            onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+                                            className="w-full p-3.5 border border-gray-500 rounded bg-gray-900 text-white focus:outline-none"
+                                            required
+                                        >
+                                            {states.map((state) => (
+                                                <option key={state.value} value={state.value}>
+                                                    {state.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="block text-sm mb-2">City <span className="text-red-500">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        name="city"
+                                        value={formData.city}
+                                        onChange={handleInputChange}
+                                        className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="mb-6">
+                                <label className="block text-sm mb-2">Zip Code <span className="text-red-500">*</span></label>
+                                <input 
+                                    type="text" 
+                                    name="zip"
+                                    value={formData.zip}
+                                    onChange={handleInputChange}
+                                    className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                    required
+                                />
+                            </div>
+
+                            {/* Payment Information */}
+                            <h3 className="text-lg font-semibold pb-2 border-b mb-4">Payment Information</h3>
+                            <div className="mb-6">
+                                <label className="block text-sm mb-2">Card Name <span className="text-red-500">*</span></label>
+                                <input 
+                                    type="text" 
+                                    name="cardName"
+                                    value={formData.cardName}
+                                    onChange={handleInputChange}
+                                    className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                    required
+                                />
+                            </div>
+                            <div className="mb-6">
+                                <label className="block text-sm mb-2">Card Number <span className="text-red-500">*</span></label>
+                                <input 
+                                    type="text" 
+                                    name="cardNumber"
+                                    value={formData.cardNumber}
+                                    onChange={handleInputChange}
+                                    className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                    required
+                                />
+                            </div>
+                            <div className="mb-6 grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm mb-2">Expiry Date <span className="text-red-500">*</span></label>
+                                    <input 
+                                        type="date" 
+                                        name="expiryDate"
+                                        value={formData.expiryDate}
+                                        onChange={handleInputChange}
+                                        min={today}
+                                        className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm mb-2">CVV <span className="text-red-500">*</span></label>
+                                    <input 
+                                        type="text" 
+                                        name="cvv"
+                                        value={formData.cvv}
+                                        onChange={handleInputChange}
+                                        className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Error Message */}
+                            {error && <div className="text-red-500">{error}</div>}
+                            
+                            <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700 mt-4">
+                                Proceed to Payment
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            ) : (
+                <div className="flex flex-col items-center justify-center mt-10">
+                    <img src={emptyCart} alt="Empty Cart" className="w-48 h-48 mb-5" />
+                    <h3 className="text-xl text-white">Your cart is empty!</h3>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default Checkout;

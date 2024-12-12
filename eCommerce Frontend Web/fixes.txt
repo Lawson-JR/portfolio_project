@@ -1,0 +1,4 @@
+Profile picture logic - 50%
+Session Time Out logic - 50%
+Save Order Information logic - 50%
+Favourite Games Search logic - 25%
