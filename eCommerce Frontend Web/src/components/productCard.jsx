@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaStar } from "react-icons/fa";
 import { addToCart } from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
 
@@ -28,9 +28,18 @@ const ProductCard = ({ product, onProductClick }) => {
                 <p className="text-green-500 mt-2">${product.price}</p>
                 <p className="text-gray-400 text-sm mt-2">{product.genre}</p>
                 <div className="mt-4 flex items-center justify-between">
-                    <span  onClick={(e) => handleAddToCart(e, product)} className="flex items-center bg-indigo-500 cursor-pointer px-3 py-2 rounded-lg group hover:bg-indigo-700 transition duration-300">
+                    <div className="flex items-center">
+                        <FaStar className="text-yellow-500 text-sm"></FaStar>
+                        <FaStar className="text-yellow-500"></FaStar>
+                        <FaStar className="text-yellow-500 text-lg"></FaStar>
+                        <FaStar className="text-yellow-500"></FaStar>
+                        <FaStar className="text-yellow-500 text-sm"></FaStar>
+                    </div>
+                    <span  onClick={(e) => handleAddToCart(e, product)} className="flex items-center bg-indigo-500 cursor-pointer px-3 py-1 rounded-lg group hover:bg-indigo-700 transition duration-300">
                         <FaPlus className="mr-2" />
-                        <button className='text-xs outline-0'>Add to cart</button>
+                        <div>
+                            <button className='text-xs outline-0'>Add to cart</button>
+                        </div>
                     </span>
                 </div>
             </div>
