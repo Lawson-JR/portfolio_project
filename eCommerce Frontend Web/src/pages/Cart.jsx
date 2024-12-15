@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import emptyCart from "../assets/images/empty-folder.png";
-import { FaThumbsDown, FaTrashAlt } from "react-icons/fa";
-import { removeFromCart, updateCartQuantity, hydrateCart } from "../redux/cartSlice";  
-import { FaThumbsUp } from "react-icons/fa6";
+import { FaTrashAlt } from "react-icons/fa";
+import { removeFromCart, updateCartQuantity, hydrateCart } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
-
 const Cart = () => {
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
@@ -130,8 +128,8 @@ const Cart = () => {
                             <div className="flex justify-between py-2">
                                 <span>Total items:</span>
                                 {cart.totalQuantity === 1 
-                                    ? <span className="flex items-center gap-2">{cart.totalQuantity} <FaThumbsDown className="mt-1" /></span>
-                                    : <span className="flex items-center gap-2">{cart.totalQuantity} <FaThumbsUp className="mb-1" /></span> 
+                                    ? <span className="flex items-center gap-2">{cart.totalQuantity}</span>
+                                    : <span className="flex items-center gap-2">{cart.totalQuantity}</span> 
                                 }
                             </div>
                             <div className="flex justify-between py-2">

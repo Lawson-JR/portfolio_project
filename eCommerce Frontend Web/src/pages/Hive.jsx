@@ -4,13 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "../components/productCard";
 import { FaPlus } from "react-icons/fa";
 import { addToCart } from "../redux/cartSlice"; 
-import { FaStickyNote } from "react-icons/fa";
 
 const Hive = () => {
     const { category } = useParams(); 
     const navigate = useNavigate();
     const products = useSelector(state => state.product.products);
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();
 
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -56,7 +55,6 @@ const Hive = () => {
     return (
         <div className="font-bahnschrift md:px-16 lg:px-16 bg-gray-900 text-gray-100">
             <div className="py-8">
-            <FaStickyNote className="text-indigo-300 text-lg -mb-6 "></FaStickyNote>
                 <div className="relative mb-14 -mt-3">
                     <select
                         className="absolute top-0 right-0 bg-gray-700 text-white ml-1 p-2 text-sm rounded-lg border outline-0"
