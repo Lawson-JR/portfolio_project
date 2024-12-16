@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import profilePic from "../assets/images/user.png";
-import { FaPlus, FaTrashAlt, FaUserEdit } from "react-icons/fa";
+import { FaPlus, FaTrashAlt } from "react-icons/fa";
 
 const Profile = ({ setCurrentUser }) => {
     const navigate = useNavigate();
