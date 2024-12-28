@@ -43,15 +43,16 @@ import f12023 from "./images/f12023.jpg"
 import eldenRing from "./images/eldenRing.jpg"
 import lifeIsStrangeTrueColors from "./images/lifeIsStrangeTrueColors.jpg"
 import uncharted4 from "./images/uncharted4.jpg"
-import cyberpunk2077 from "./images/cyberpunk2077.jpg"
+import cyberpunk2077 from "./images/cyberpunk2077.png"
 import twoPointHospital from "./images/twoPointHospital.jpg"
 import marvelSpidermanRemastered from "./images/marvelSpidermanRemastered.jpg"
 import dragonQuestXI from "./images/dragonQuestXI.jpg"
 import mlbTheShow23 from "./images/mlb-the-show-23.jpg"
+import forzaHorizon5 from "./images/forza-horizon-5.jpg"
 import darkSoulsIII from "./images/dark-souls-iii.jpg"
 import oriAndTheWillOfTheWisps from "./images/ori-and-the-will-of-the-wisps.jpg"
 import starfield from "./images/starfield.jpg"
-import divinityOriginalSinII from "./images/divinity-original-sin-ii.jpg"
+import arkhamKnight from "./images/batman-arkham-knight.jpg"
 import stardewValley from "./images/stardew-valley.jpg"
 import hadesII from "./images/hades-ii.jpg"
 import kerbalSpaceProgram from "./images/kerbal-space-program.jpg"
@@ -65,15 +66,34 @@ import totalWarThreeKingdoms from "./images/total-war-three-kingdoms.jpg"
 import starCraftII from "./images/starcraft2.jpg"
 import planetCoaster from "./images/planet-coaster.jpg"
 import redDeadRedemption from "./images/red-dead-redemption.jpg"
+import wwe2K23 from "./images/wwe-2k23.jpg"
 import ageOfEmpiresIV from "./images/age-of-empires-4.jpg"
 import microsoftFlightSimulator from "./images/microsoft-flight-simulator.jpg"
 import rimworld from "./images/rimworld.jpg"
 import hollowKnight from "./images/hollow-knight.jpg"
 import discoElysium from "./images/disco-elysium.png"
-import nierAutomata from "./images/nier-automata.jpg"
+import fifa23 from "./images/fifa-2023.jpg"
 import theEvilWithin from "./images/the-evil-within.jpg"
 import greenHell from "./images/green-hell.jpg"
 import arkhamAsylum from "./images/arkham-asylum.jpg"
+import outward from "./images/outward.png"
+import snowRunner from "./images/snowrunner.jpg"
+import divinityOriginalSinII from "./images/divinity-original-sin-ii.jpg"
+import daysToDie from "./images/7-days-to-die.jpg"
+import sunlessSea from "./images/sunless-sea.jpg"
+import nierAutomata from "./images/nier-automata.jpg"
+import theLongDark from "./images/the-long-dark.jpg"
+import twoPointCampus from "./images/two-point-campus.jpg"
+import projectZomboid from "./images/project-zomboid.png"
+import mountBladeII from "./images/mount-blade-ii.jpg"
+import metroExodus from "./images/metro-exodus.jpg"
+import styx from "./images/styx.jpg"
+import dyingLight2 from "./images/dying-light-2.jpg"
+import planetZoo from "./images/planet-zoo.jpg"
+import scorn from "./images/scorn.png"
+import sonsOfTheForest from "./images/sons-of-the-forest.jpg"
+import aWayOut from "./images/a-way-out.jpg"
+import weHappyFew from "./images/we-happy-few.jpg"
 
 export const Categories = [
     "Action",
@@ -139,11 +159,11 @@ export const mockData = [
     { id: 47, image: milesMorales, name: "Spider-Man: Miles Morales", price: "49.99", genre: "Action", description: "Swing into action as Miles Morales, New York's newest Spider-Man.", rating: 3 },
     { id: 48, image: dragonQuestXI, name: "Dragon Quest XI", price: "39.99", genre: "R.P.G", description: "Embark on a journey to save the world in this classic RPG.", rating: 2 },
     { id: 49, image: mlbTheShow23, name: "MLB The Show 23", price: "59.99", genre: "Sports", description: "Step onto the diamond in the most realistic baseball simulation.", rating: 4 },
-    { id: 50, image: "", name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 2 },
+    { id: 50, image: forzaHorizon5, name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 2 },
     { id: 51, image: darkSoulsIII, name: "Dark Souls III", price: "39.99", genre: "R.P.G", description: "Survive a challenging, dark fantasy world in this action RPG.", rating: 2 },
     { id: 52, image: oriAndTheWillOfTheWisps, name: "Ori and the Will of the Wisps", price: "29.99", genre: "Adventure", description: "A beautiful and emotional platformer set in a mystical forest.", rating: 3 },
     { id: 53, image: starfield, name: "Starfield", price: "69.99", genre: "R.P.G", description: "Explore the stars in Bethesda's latest space-faring RPG.", rating: 4 },
-    { id: 54, image: divinityOriginalSinII, name: "Divinity: Original Sin 2", price: "44.99", genre: "R.P.G", description: "Experience deep tactical combat in this critically acclaimed RPG.", rating: 3 },
+    { id: 54, image: arkhamKnight, name: "Batman: Arkham Knight", price: "19.99", genre: "Action/Adventure", description: "Defend Gotham City in the explosive finale to the Arkham series.", rating: 4 },
     { id: 55, image: stardewValley, name: "Stardew Valley", price: "14.99", genre: "Simulation", description: "Build the farm of your dreams in this charming indie farming game.", rating: 2 },
     { id: 56, image: hadesII, name: "Hades II", price: "24.99", genre: "Action", description: "Fight your way out of the underworld in this fast-paced roguelike.", rating: 3 },
     { id: 57, image: kerbalSpaceProgram, name: "Kerbal Space Program", price: "39.99", genre: "Simulation", description: "Design and launch rockets in this space simulation.", rating: 4 },
@@ -157,36 +177,33 @@ export const mockData = [
     { id: 65, image: starCraftII, name: "StarCraft II", price: "39.99", genre: "Strategy", description: "Lead your faction to victory in this legendary real-time strategy game.", rating: 2 },
     { id: 66, image: planetCoaster, name: "Planet Coaster", price: "44.99", genre: "Simulation", description: "Build and manage your dream theme park with endless creativity.", rating: 3 },
     { id: 67, image: redDeadRedemption, name: "Red Dead Redemption", price: "59.99", genre: "Action/Adventure", description: "Experience life as an outlaw in the American West.", rating: 4 },
-    { id: 68, image: "", name: "WWE 2K23", price: "59.99", genre: "Sports", description: "Step into the ring and become a wrestling legend.", rating: 2 },
+    { id: 68, image: wwe2K23, name: "WWE 2K23", price: "59.99", genre: "Sports", description: "Step into the ring and become a wrestling legend.", rating: 2 },
     { id: 69, image: ageOfEmpiresIV, name: "Age of Empires IV", price: "59.99", genre: "Strategy", description: "Build and lead your empire through the ages in this RTS.", rating: 4 },
     { id: 70, image: microsoftFlightSimulator, name: "Microsoft Flight Simulator", price: "59.99", genre: "Simulation", description: "Take to the skies in this ultra-realistic flight simulation game.", rating: 3 },
     { id: 71, image: horizonZeroDawn, name: "Horizon Zero Dawn", price: "19.99", genre: "Action/Adventure", description: "Embark on a journey as Aloy to uncover the secrets of a world overrun by machines.", rating: 2 },
     { id: 72, image: rimworld, name: "RimWorld", price: "34.99", genre: "Simulation", description: "Build and manage a space colony on a distant planet.", rating: 3 },
     { id: 73, image: hollowKnight, name: "Hollow Knight", price: "14.99", genre: "Adventure", description: "Explore a vast, haunted kingdom in this atmospheric platformer.", rating: 3 },
     { id: 74, image: discoElysium, name: "Disco Elysium", price: "39.99", genre: "R.P.G", description: "Solve a murder mystery as a troubled detective in this deep narrative RPG.", rating: 4 },
-    { id: 75, image: nierAutomata, name: "NieR: Automata", price: "49.99", genre: "R.P.G", description: "Uncover the secrets of a post-apocalyptic world in this action-packed story.", rating: 2 },
+    { id: 75, image: fifa23, name: "FIFA 23", price: "59.99", genre: "Sports", description: "Experience the latest in realistic football simulation.", rating: 4 },
     { id: 76, image: theEvilWithin, name: "The Evil Within", price: "19.99", genre: "Horror", description: "Survive twisted nightmares in this intense survival horror game.", rating: 3 },
     { id: 77, image: greenHell, name: "Green Hell", price: "24.99", genre: "Survival", description: "Survive the perils of the Amazon rainforest in this intense survival game.", rating: 4 },
     { id: 78, image: arkhamAsylum, name: "Batman: Arkham Asylum", price: "14.99", genre: "Action/Adventure", description: "Step into the shoes of the Dark Knight in this critically acclaimed adventure.", rating: 3 },
-    { id: 79, image: "", name: "Outward", price: "39.99", genre: "R.P.G", description: "Survive as an ordinary adventurer in a challenging open-world RPG.", rating: 3 },
-    { id: 80, image: "", name: "GreedFall", price: "39.99", genre: "R.P.G", description: "Forge your destiny in a mysterious, magical land.", rating: 4 },
-    { id: 81, image: "", name: "Batman: Arkham Knight", price: "19.99", genre: "Action/Adventure", description: "Defend Gotham City in the explosive finale to the Arkham series.", rating: 4 },
-    { id: 82, image: "", name: "7 Days to Die", price: "24.99", genre: "Survival", description: "Survive hordes of zombies in this open-world survival crafting game.", rating: 4 },
-    { id: 83, image: "", name: "Sunless Sea", price: "19.99", genre: "Adventure", description: "Explore a dark and mysterious underground ocean.", rating: 2 },
-    { id: 84, image: "", name: "FIFA 23", price: "59.99", genre: "Sports", description: "Experience the latest in realistic football simulation.", rating: 4 },
-    { id: 85, image: "", name: "The Long Dark", price: "34.99", genre: "Survival", description: "Brave the elements and survive in the Canadian wilderness.", rating: 2 },
-    { id: 86, image: "", name: "Two Point Campus", price: "39.99", genre: "Simulation", description: "Build and manage your dream university in this quirky simulation game.", rating: 4 },
-    { id: 87, image: "", name: "Project Zomboid", price: "19.99", genre: "Survival", description: "Survive the zombie apocalypse in this detailed simulation game.", rating: 3 },
-    { id: 88, image: "", name: "Bannerlord", price: "49.99", genre: "Strategy", description: "Lead armies, build empires, and forge alliances in this medieval epic.", rating: 4 },
-    { id: 89, image: "", name: "Metro Exodus", price: "39.99", genre: "Action", description: "Embark on a gripping journey across post-apocalyptic Russia in this story-driven FPS.", rating: 3 },
-    { id: 90, image: "", name: "Styx: Shards of Darkness", price: "19.99", genre: "Adventure", description: "Sneak through a dark fantasy world as a cunning goblin thief.", rating: 4 },
-    { id: 91, image: "", name: "Dying Light 2", price: "59.99", genre: "Horror", description: "Survive in a post-apocalyptic open world teeming with zombies.", rating: 2 },
-    { id: 92, image: "", name: "Planet Zoo", price: "44.99", genre: "Simulation", description: "Build and manage your own zoo with incredible attention to detail.", rating: 3 },
-    { id: 93, image: "", name: "Scorn", price: "39.99", genre: "Horror", description: "Immerse yourself in a nightmarish, biomechanical world.", rating: 3 },
-    { id: 94, image: "", name: "The Forest", price: "19.99", genre: "Survival", description: "Survive in a mysterious forest filled with dangerous creatures and uncover its dark secrets.", rating: 4 },
-    { id: 95, image: "", name: "A Way Out", price: "29.99", genre: "Adventure", description: "Work with a partner to escape prison and experience a unique co-op story.", rating: 3 },
-    { id: 96, image: "", name: "We Happy Few", price: "39.99", genre: "Adventure", description: "Navigate a dystopian world filled with dark secrets and eerie characters.", rating: 4 },
-    // { id: 98, image: "", name: "Scorn", price: "39.99", genre: "Horror", description: "Immerse yourself in a nightmarish, biomechanical world.", rating: 3 },
-    // { id: 99, image: "", name: "SnowRunner", price: "34.99", genre: "Simulation", description: "Take on extreme terrain with heavy-duty vehicles in this simulation game.", rating: 4 },
-    // { id: 100, image: "", name: "Pathfinder: Kingmaker", price: "39.99", genre: "R.P.G", description: "Lead a party of adventurers in this epic isometric RPG.", rating: 4 }
+    { id: 79, image: outward, name: "Outward", price: "39.99", genre: "R.P.G", description: "Survive as an ordinary adventurer in a challenging open-world RPG.", rating: 3 },
+    { id: 80, image: snowRunner, name: "SnowRunner", price: "34.99", genre: "Simulation", description: "Take on extreme terrain with heavy-duty vehicles in this simulation game.", rating: 4 },
+    { id: 81, image: divinityOriginalSinII, name: "Divinity: Original Sin 2", price: "44.99", genre: "R.P.G", description: "Experience deep tactical combat in this critically acclaimed RPG.", rating: 3 },
+    { id: 82, image: daysToDie, name: "7 Days to Die", price: "24.99", genre: "Survival", description: "Survive hordes of zombies in this open-world survival crafting game.", rating: 4 },
+    { id: 83, image: sunlessSea, name: "Sunless Sea", price: "19.99", genre: "Adventure", description: "Explore a dark and mysterious underground ocean.", rating: 2 },
+    { id: 84, image: nierAutomata, name: "NieR: Automata", price: "49.99", genre: "R.P.G", description: "Uncover the secrets of a post-apocalyptic world in this action-packed story.", rating: 2 },
+    { id: 85, image: theLongDark, name: "The Long Dark", price: "34.99", genre: "Survival", description: "Brave the elements and survive in the Canadian wilderness.", rating: 2 },
+    { id: 86, image: twoPointCampus, name: "Two Point Campus", price: "39.99", genre: "Simulation", description: "Build and manage your dream university in this quirky simulation game.", rating: 4 },
+    { id: 87, image: projectZomboid, name: "Project Zomboid", price: "19.99", genre: "Survival", description: "Survive the zombie apocalypse in this detailed simulation game.", rating: 3 },
+    { id: 88, image: mountBladeII, name: "Mount & Blade II: Bannerlord", price: "49.99", genre: "Strategy", description: "Lead armies, build empires, and forge alliances in this medieval epic.", rating: 4 },
+    { id: 89, image: metroExodus, name: "Metro Exodus", price: "39.99", genre: "Action", description: "Embark on a gripping journey across post-apocalyptic Russia in this story-driven FPS.", rating: 3 },
+    { id: 90, image: styx, name: "Styx: Shards of Darkness", price: "19.99", genre: "Adventure", description: "Sneak through a dark fantasy world as a cunning goblin thief.", rating: 4 },
+    { id: 91, image: dyingLight2, name: "Dying Light 2", price: "59.99", genre: "Horror", description: "Survive in a post-apocalyptic open world teeming with zombies.", rating: 2 },
+    { id: 92, image: planetZoo, name: "Planet Zoo", price: "44.99", genre: "Simulation", description: "Build and manage your own zoo with incredible attention to detail.", rating: 3 },
+    { id: 93, image: scorn, name: "Scorn", price: "39.99", genre: "Horror", description: "Immerse yourself in a nightmarish, biomechanical world.", rating: 3 },
+    { id: 94, image: sonsOfTheForest, name: "Sons Of The Forest", price: "19.99", genre: "Survival", description: "Survive in a mysterious forest filled with dangerous creatures and uncover its dark secrets.", rating: 4 },
+    { id: 95, image: aWayOut, name: "A Way Out", price: "29.99", genre: "Adventure", description: "Work with a partner to escape prison and experience a unique co-op story.", rating: 3 },
+    { id: 96, image: weHappyFew, name: "We Happy Few", price: "39.99", genre: "Adventure", description: "Navigate a dystopian world filled with dark secrets and eerie characters.", rating: 4 },
 ]
