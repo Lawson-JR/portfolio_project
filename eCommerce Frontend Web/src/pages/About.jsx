@@ -18,10 +18,11 @@ const About = () => {
 
                 <h3 className="text-2xl font-semibold mb-4">Skills</h3>
                 <ul className="list-disc list-inside mb-4 text-lg">
-                    <li>HTML & CSS (Tailwind CSS, Bootstrap)</li>
+                    <li>HTML & CSS</li>
                     <li>JavaScript</li>
-                    <li>React.js & Redux</li>
                     <li>Version Control (Git & GitHub)</li>
+                    <li>Tailwind CSS</li>
+                    <li>React.js & Redux</li>
                 </ul>
 
                 <h3 className="text-2xl font-semibold mb-4">Projects</h3>

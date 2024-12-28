@@ -1,8 +1,7 @@
-# React + Vite
+# Changes I need to make:
+* Complete the pictures in the hive (1 hour)
+* Clear search bar after search (1 hour)
+* Save checkout details after placing order (3 hours)
+* Logout a user properly after session elapses (1 day)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Note: Test code after changes

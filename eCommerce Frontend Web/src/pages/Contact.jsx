@@ -16,9 +16,6 @@ const Contact = () => {
                 <p className="mb-2">
                     <strong>GitHub:</strong> <a href="https://github.com/Lawson-JR" target="_blank" rel="noopener noreferrer" className="text-indigo-300 hover:underline">Lawson-JR</a>
                 </p>
-                <p className="mb-2">
-                    <strong>Discord:</strong> <span className="text-indigo-300">Lawson-JR Ishikaku</span>
-                </p>
                 
                 <div className="bg-gradient-to-r from-indigo-500 to-purple-600 h-1 w-24 rounded-full mt-4 mx-auto" />
                 

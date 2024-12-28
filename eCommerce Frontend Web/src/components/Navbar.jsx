@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaSearch, FaShoppingCart, FaGamepad, FaUserAlt, FaUserSlash, FaSignOutAlt } from "react-icons/fa"; // Import the required icons
+import { FaSearch, FaShoppingCart, FaUserAlt, FaUserSlash, FaSignOutAlt } from "react-icons/fa"; // Import the required icons
 import { useDispatch, useSelector } from "react-redux";
 import Modal from './Modal'; // Import the modal component
 import LogIn from './logIn'; // Import the LogIn component
@@ -74,13 +74,9 @@ const Navbar = () => {
     return (
         <nav className="bg-gray-900 font-bahnschrift">
             <div className="container mx-auto px-4 md:px-16 lg:px-16 py-4 flex items-center">
-                {/* Logo Section */}
-                <div className="text-lg font-bold flex items-center space-x-3 text-gray-100">
-                    <FaGamepad className="w-8 h-8" />
-                    <Link to="/" className="text-indigo-400 text-xl hover:text-indigo-500 transition duration-300">
-                        ArKade
-                    </Link>
-                </div>
+            <Link to="/" className="text-indigo-400 text-xl font-bold hover:text-indigo-500 transition duration-300">
+                ArKade
+            </Link>
 
                 {/* Search Form */}
                 <div className="relative flex-1 mx-4">
@@ -162,28 +158,28 @@ const Navbar = () => {
             <div className="flex items-center justify-center space-x-10 py-4 text-sm font-bold bg-gray-800">
                 <Link
                     to="/"
-                    className={`transition duration-300 ${location.pathname === "/" ? "text-indigo-400" : "text-gray-100 hover:text-indigo-400"}`}
+                    className={`transition duration-300 ${location.pathname === "/" ? "text-indigo-400 hover:text-indigo-500 transition duration-300" : "text-gray-100 hover:text-indigo-400"}`}
                 >
                     Home
                 </Link>
 
                 <Link
                     to="/hive"
-                    className={`transition duration-300 ${isHivePath ? "text-indigo-400" : "text-gray-100 hover:text-indigo-400"}`}
+                    className={`transition duration-300 ${isHivePath ? "text-indigo-400 hover:text-indigo-500 transition duration-300" : "text-gray-100 hover:text-indigo-400"}`}
                 >
                     Hive
                 </Link>
 
                 <Link
                     to="/contact"
-                    className={`transition duration-300 ${location.pathname === "/contact" ? "text-indigo-400" : "text-gray-100 hover:text-indigo-400"}`}
+                    className={`transition duration-300 ${location.pathname === "/contact" ? "text-indigo-400 hover:text-indigo-500 transition duration-300" : "text-gray-100 hover:text-indigo-400"}`}
                 >
                     Contact
                 </Link>
 
                 <Link
                     to="/about"
-                    className={`transition duration-300 ${location.pathname === "/about" ? "text-indigo-400" : "text-gray-100 hover:text-indigo-400"}`}
+                    className={`transition duration-300 ${location.pathname === "/about" ? "text-indigo-400 hover:text-indigo-500 transition duration-300" : "text-gray-100 hover:text-indigo-400"}`}
                 >
                     About
                 </Link>
