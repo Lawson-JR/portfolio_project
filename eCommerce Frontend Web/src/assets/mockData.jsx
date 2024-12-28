@@ -66,6 +66,14 @@ import starCraftII from "./images/starcraft2.jpg"
 import planetCoaster from "./images/planet-coaster.jpg"
 import redDeadRedemption from "./images/red-dead-redemption.jpg"
 import ageOfEmpiresIV from "./images/age-of-empires-4.jpg"
+import microsoftFlightSimulator from "./images/microsoft-flight-simulator.jpg"
+import rimworld from "./images/rimworld.jpg"
+import hollowKnight from "./images/hollow-knight.jpg"
+import discoElysium from "./images/disco-elysium.png"
+import nierAutomata from "./images/nier-automata.jpg"
+import theEvilWithin from "./images/the-evil-within.jpg"
+import greenHell from "./images/green-hell.jpg"
+import arkhamAsylum from "./images/arkham-asylum.jpg"
 
 export const Categories = [
     "Action",
@@ -151,15 +159,15 @@ export const mockData = [
     { id: 67, image: redDeadRedemption, name: "Red Dead Redemption", price: "59.99", genre: "Action/Adventure", description: "Experience life as an outlaw in the American West.", rating: 4 },
     { id: 68, image: "", name: "WWE 2K23", price: "59.99", genre: "Sports", description: "Step into the ring and become a wrestling legend.", rating: 2 },
     { id: 69, image: ageOfEmpiresIV, name: "Age of Empires IV", price: "59.99", genre: "Strategy", description: "Build and lead your empire through the ages in this RTS.", rating: 4 },
-    { id: 70, image: "", name: "Microsoft Flight Simulator", price: "59.99", genre: "Simulation", description: "Take to the skies in this ultra-realistic flight simulation game.", rating: 3 },
+    { id: 70, image: microsoftFlightSimulator, name: "Microsoft Flight Simulator", price: "59.99", genre: "Simulation", description: "Take to the skies in this ultra-realistic flight simulation game.", rating: 3 },
     { id: 71, image: horizonZeroDawn, name: "Horizon Zero Dawn", price: "19.99", genre: "Action/Adventure", description: "Embark on a journey as Aloy to uncover the secrets of a world overrun by machines.", rating: 2 },
-    { id: 72, image: "", name: "RimWorld", price: "34.99", genre: "Simulation", description: "Build and manage a space colony on a distant planet.", rating: 3 },
-    { id: 73, image: "", name: "Hollow Knight", price: "14.99", genre: "Adventure", description: "Explore a vast, haunted kingdom in this atmospheric platformer.", rating: 3 },
-    { id: 74, image: "", name: "Disco Elysium", price: "39.99", genre: "R.P.G", description: "Solve a murder mystery as a troubled detective in this deep narrative RPG.", rating: 4 },
-    { id: 75, image: "", name: "NieR: Automata", price: "49.99", genre: "R.P.G", description: "Uncover the secrets of a post-apocalyptic world in this action-packed story.", rating: 2 },
-    { id: 76, image: "", name: "The Evil Within", price: "19.99", genre: "Horror", description: "Survive twisted nightmares in this intense survival horror game.", rating: 3 },
-    { id: 77, image: "", name: "Green Hell", price: "24.99", genre: "Survival", description: "Survive the perils of the Amazon rainforest in this intense survival game.", rating: 4 },
-    { id: 78, image: "", name: "Batman: Arkham Asylum", price: "14.99", genre: "Action/Adventure", description: "Step into the shoes of the Dark Knight in this critically acclaimed adventure.", rating: 3 },
+    { id: 72, image: rimworld, name: "RimWorld", price: "34.99", genre: "Simulation", description: "Build and manage a space colony on a distant planet.", rating: 3 },
+    { id: 73, image: hollowKnight, name: "Hollow Knight", price: "14.99", genre: "Adventure", description: "Explore a vast, haunted kingdom in this atmospheric platformer.", rating: 3 },
+    { id: 74, image: discoElysium, name: "Disco Elysium", price: "39.99", genre: "R.P.G", description: "Solve a murder mystery as a troubled detective in this deep narrative RPG.", rating: 4 },
+    { id: 75, image: nierAutomata, name: "NieR: Automata", price: "49.99", genre: "R.P.G", description: "Uncover the secrets of a post-apocalyptic world in this action-packed story.", rating: 2 },
+    { id: 76, image: theEvilWithin, name: "The Evil Within", price: "19.99", genre: "Horror", description: "Survive twisted nightmares in this intense survival horror game.", rating: 3 },
+    { id: 77, image: greenHell, name: "Green Hell", price: "24.99", genre: "Survival", description: "Survive the perils of the Amazon rainforest in this intense survival game.", rating: 4 },
+    { id: 78, image: arkhamAsylum, name: "Batman: Arkham Asylum", price: "14.99", genre: "Action/Adventure", description: "Step into the shoes of the Dark Knight in this critically acclaimed adventure.", rating: 3 },
     { id: 79, image: "", name: "Outward", price: "39.99", genre: "R.P.G", description: "Survive as an ordinary adventurer in a challenging open-world RPG.", rating: 3 },
     { id: 80, image: "", name: "GreedFall", price: "39.99", genre: "R.P.G", description: "Forge your destiny in a mysterious, magical land.", rating: 4 },
     { id: 81, image: "", name: "Batman: Arkham Knight", price: "19.99", genre: "Action/Adventure", description: "Defend Gotham City in the explosive finale to the Arkham series.", rating: 4 },
