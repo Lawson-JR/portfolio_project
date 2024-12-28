@@ -22,6 +22,11 @@ This is a **game eCommerce frontend app** built with **React**, **Redux**, **Tai
    ```bash
    git clone https://github.com/Lawson-JR/portfolio_project.git
    cd portfolio_project
+   
+2. Run the application:
+   ```bash
+   cd eCommerce\ Frontend\ Web/
+   npm run dev
 
 ## Usage
 - **Browse Games**: On the home page, view the available games. Use the search bar, filters, and sorting to find specific games.
