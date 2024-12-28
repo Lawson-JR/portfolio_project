@@ -47,7 +47,13 @@ import cyberpunk2077 from "./images/cyberpunk2077.jpg"
 import twoPointHospital from "./images/twoPointHospital.jpg"
 import marvelSpidermanRemastered from "./images/marvelSpidermanRemastered.jpg"
 import dragonQuestXI from "./images/dragonQuestXI.jpg"
-
+import mlbTheShow23 from "./images/mlb-the-show-23.jpg"
+import darkSoulsIII from "./images/dark-souls-iii.jpg"
+import oriAndTheWillOfTheWisps from "./images/ori-and-the-will-of-the-wisps.jpg"
+import divinityOriginalSinII from "./images/divinity-original-sin-ii.jpg"
+import stardewValley from "./images/stardew-valley.jpg"
+import hadesII from "./images/hades-ii.jpg"
+import kerbalSpaceProgram from "./images/kerbal-space-program.jpg"
 
 export const Categories = [
     "Action",
@@ -112,15 +118,15 @@ export const mockData = [
     { id: 46, image: twoPointHospital, name: "Two Point Hospital", price: "29.99", genre: "Simulation", description: "Build and manage your own hospital in this quirky simulation game.", rating: 4 },
     { id: 47, image: milesMorales, name: "Spider-Man: Miles Morales", price: "49.99", genre: "Action", description: "Swing into action as Miles Morales, New York's newest Spider-Man.", rating: 3 },
     { id: 48, image: dragonQuestXI, name: "Dragon Quest XI", price: "39.99", genre: "R.P.G", description: "Embark on a journey to save the world in this classic RPG.", rating: 2 },
-    { id: 49, image: "", name: "MLB The Show 23", price: "59.99", genre: "Sports", description: "Step onto the diamond in the most realistic baseball simulation.", rating: 4 },
-    { id: 50, image: "", name: "Mass Effect Legendary Edition", price: "59.99", genre: "R.P.G", description: "Relive Commander Shepard's epic journey across the galaxy.", rating: 3 },
-    { id: 51, image: "", name: "Dark Souls III", price: "39.99", genre: "R.P.G", description: "Survive a challenging, dark fantasy world in this action RPG.", rating: 2 },
-    { id: 52, image: "", name: "Ori and the Will of the Wisps", price: "29.99", genre: "Adventure", description: "A beautiful and emotional platformer set in a mystical forest.", rating: 3 },
+    { id: 49, image: mlbTheShow23, name: "MLB The Show 23", price: "59.99", genre: "Sports", description: "Step onto the diamond in the most realistic baseball simulation.", rating: 4 },
+    { id: 50, image: "", name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 2 },
+    { id: 51, image: darkSoulsIII, name: "Dark Souls III", price: "39.99", genre: "R.P.G", description: "Survive a challenging, dark fantasy world in this action RPG.", rating: 2 },
+    { id: 52, image: oriAndTheWillOfTheWisps, name: "Ori and the Will of the Wisps", price: "29.99", genre: "Adventure", description: "A beautiful and emotional platformer set in a mystical forest.", rating: 3 },
     { id: 53, image: "", name: "Starfield", price: "69.99", genre: "R.P.G", description: "Explore the stars in Bethesda's latest space-faring RPG.", rating: 4 },
-    { id: 54, image: "", name: "Divinity: Original Sin 2", price: "44.99", genre: "R.P.G", description: "Experience deep tactical combat in this critically acclaimed RPG.", rating: 3 },
-    { id: 55, image: "", name: "Stardew Valley", price: "14.99", genre: "Simulation", description: "Build the farm of your dreams in this charming indie farming game.", rating: 2 },
-    { id: 56, image: "", name: "Hades", price: "24.99", genre: "Action", description: "Fight your way out of the underworld in this fast-paced roguelike.", rating: 3 },
-    { id: 57, image: "", name: "Kerbal Space Program", price: "39.99", genre: "Simulation", description: "Design and launch rockets in this space simulation.", rating: 4 },
+    { id: 54, image: divinityOriginalSinII, name: "Divinity: Original Sin 2", price: "44.99", genre: "R.P.G", description: "Experience deep tactical combat in this critically acclaimed RPG.", rating: 3 },
+    { id: 55, image: stardewValley, name: "Stardew Valley", price: "14.99", genre: "Simulation", description: "Build the farm of your dreams in this charming indie farming game.", rating: 2 },
+    { id: 56, image: hadesII, name: "Hades II", price: "24.99", genre: "Action", description: "Fight your way out of the underworld in this fast-paced roguelike.", rating: 3 },
+    { id: 57, image: kerbalSpaceProgram, name: "Kerbal Space Program", price: "39.99", genre: "Simulation", description: "Design and launch rockets in this space simulation.", rating: 4 },
     { id: 58, image: "", name: "RollerCoaster Tycoon 3", price: "19.99", genre: "Simulation", description: "Create your dream amusement park in this classic simulation game.", rating: 3 },
     { id: 59, image: "", name: "Farming Simulator 22", price: "39.99", genre: "Simulation", description: "Experience the challenges and rewards of modern farming.", rating: 4 },
     { id: 60, image: "", name: "Crusader Kings III", price: "59.99", genre: "Strategy", description: "Rule your dynasty across generations in this grand strategy game.", rating: 3 },
@@ -160,8 +166,8 @@ export const mockData = [
     { id: 94, image: "", name: "The Forest", price: "19.99", genre: "Survival", description: "Survive in a mysterious forest filled with dangerous creatures and uncover its dark secrets.", rating: 4 },
     { id: 95, image: "", name: "A Way Out", price: "29.99", genre: "Adventure", description: "Work with a partner to escape prison and experience a unique co-op story.", rating: 3 },
     { id: 96, image: "", name: "We Happy Few", price: "39.99", genre: "Adventure", description: "Navigate a dystopian world filled with dark secrets and eerie characters.", rating: 4 },
-    { id: 97, image: "", name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 2 },
-    { id: 98, image: "", name: "Scorn", price: "39.99", genre: "Horror", description: "Immerse yourself in a nightmarish, biomechanical world.", rating: 3 },
-    { id: 99, image: "", name: "SnowRunner", price: "34.99", genre: "Simulation", description: "Take on extreme terrain with heavy-duty vehicles in this simulation game.", rating: 4 },
-    { id: 100, image: "", name: "Pathfinder: Kingmaker", price: "39.99", genre: "R.P.G", description: "Lead a party of adventurers in this epic isometric RPG.", rating: 4 }
+    // { id: 97, image: "", name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 2 },
+    // { id: 98, image: "", name: "Scorn", price: "39.99", genre: "Horror", description: "Immerse yourself in a nightmarish, biomechanical world.", rating: 3 },
+    // { id: 99, image: "", name: "SnowRunner", price: "34.99", genre: "Simulation", description: "Take on extreme terrain with heavy-duty vehicles in this simulation game.", rating: 4 },
+    // { id: 100, image: "", name: "Pathfinder: Kingmaker", price: "39.99", genre: "R.P.G", description: "Lead a party of adventurers in this epic isometric RPG.", rating: 4 }
 ]
