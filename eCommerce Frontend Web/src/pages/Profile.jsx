@@ -16,8 +16,6 @@ const Profile = ({ setCurrentUser }) => {
 
     useEffect(() => {
         const storedUserDetails = JSON.parse(localStorage.getItem('currentUser'));
-        const sessionStart = localStorage.getItem('sessionStart'); 
-
         if (storedUserDetails) {
             setUserDetails(storedUserDetails); 
             setFavoriteGames(storedUserDetails.favoriteGames || []); 
@@ -26,37 +24,7 @@ const Profile = ({ setCurrentUser }) => {
             alert('You must be logged in to view this page.');
             navigate('/'); 
         }
-
-        if (sessionStart) {
-            const sessionDuration = 30 * 60 * 1000; 
-            const sessionStartTime = parseInt(sessionStart, 10); 
-
-            const updateTimer = () => {
-                const currentTime = new Date().getTime();
-                const elapsedTime = currentTime - sessionStartTime;
-                const timeRemaining = sessionDuration - elapsedTime;
-
-                if (timeRemaining > 0) {
-                    setTimeLeft(timeRemaining); 
-                } else {
-                    setTimeLeft(0); 
-                    navigate('/profile');
-                    handleTimeOut(); 
-                }
-            };
-
-            const timerInterval = setInterval(updateTimer, 1000);
-
-            return () => clearInterval(timerInterval); 
-        }
     }, [navigate]);
-
-    const formatTimeLeft = (milliseconds) => {
-        const totalSeconds = Math.floor(milliseconds / 1000);
-        const minutes = Math.floor(totalSeconds / 60);
-        const seconds = totalSeconds % 60;
-        return `${minutes}m ${seconds}s`;
-    };
 
     const handleLogout = () => {
         const confirmLogout = window.confirm("Are you sure you want to log out?");
@@ -72,19 +40,6 @@ const Profile = ({ setCurrentUser }) => {
                 window.location.reload(); 
             }, 50);
         }
-    };
-            
-    const handleTimeOut = () => {
-        localStorage.removeItem('currentUser'); 
-        localStorage.removeItem('currentUserEmail'); 
-        localStorage.removeItem('sessionStart'); 
-        setCurrentUser(null); 
-        alert("Your session has expired. You are being logged out!");
-        navigate('/cart');
-        setTimeout(() => {
-            navigate('/'); 
-            window.location.reload(); 
-        }, 50);
     };
 
     const handleDeleteAccount = () => {
@@ -206,11 +161,6 @@ const Profile = ({ setCurrentUser }) => {
                                 <div>
                                     <p className="mb-2">Username: <span className="font-semibold">{userDetails.username}</span></p>
                                     <p className="mb-2">Email: <span className="font-semibold">{userDetails.email}</span></p>
-                                    {timeLeft !== null && (
-                                        <p className="text-sm text-gray-500">
-                                            Time Left: {formatTimeLeft(timeLeft)}
-                                        </p>
-                                    )}
                                 </div>
                             </div>
                             <button 

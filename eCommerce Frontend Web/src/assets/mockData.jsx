@@ -113,7 +113,7 @@ export const mockData = [
     { id: 3, image: theWitcherIIIWildHunt, name: "The Witcher 3: Wild Hunt", price: "39.99", genre: "R.P.G", description: "Explore a richly detailed fantasy world as Geralt of Rivia.", rating: 5},
     { id: 4, image: civilizationVI, name: "Civilization VI", price: "29.99", genre: "Strategy", description: "Lead your civilization from the Stone Age to the Information Age.", rating: 5},
     { id: 5, image: nba2k24, name: "NBA 2K24", price: "69.99", genre: "Sports", description: "The most realistic basketball experience awaits with NBA 2K24.", rating: 5},
-    { id: 6, image: bayonetta3, name: "Bayonetta 3", price: "49.99", genre: "Action", description: "Battle angels and demons in the thrilling action-packed sequel.", rating: 5},
+    { id: 6, image: forzaHorizon5, name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 5 },
     { id: 7, image: farCry6, name: "Far Cry 6", price: "59.99", genre: "Adventure", description: "Fight for freedom in a tropical paradise ruled by a dictator.", rating: 5},
     { id: 8, image: marvelSpidermanRemastered, name: "Marvel's Spider-Man Remastered", price: "29.99", genre: "Action/Adventure", description: "Swing through the Marvel Universe as Spider-Man and protect New York City from iconic villains.", rating: 5},
     
@@ -159,7 +159,7 @@ export const mockData = [
     { id: 47, image: milesMorales, name: "Spider-Man: Miles Morales", price: "49.99", genre: "Action", description: "Swing into action as Miles Morales, New York's newest Spider-Man.", rating: 3 },
     { id: 48, image: dragonQuestXI, name: "Dragon Quest XI", price: "39.99", genre: "R.P.G", description: "Embark on a journey to save the world in this classic RPG.", rating: 2 },
     { id: 49, image: mlbTheShow23, name: "MLB The Show 23", price: "59.99", genre: "Sports", description: "Step onto the diamond in the most realistic baseball simulation.", rating: 4 },
-    { id: 50, image: forzaHorizon5, name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 2 },
+    { id: 50, image: bayonetta3, name: "Bayonetta 3", price: "49.99", genre: "Action", description: "Battle angels and demons in the thrilling action-packed sequel.", rating: 3},
     { id: 51, image: darkSoulsIII, name: "Dark Souls III", price: "39.99", genre: "R.P.G", description: "Survive a challenging, dark fantasy world in this action RPG.", rating: 2 },
     { id: 52, image: oriAndTheWillOfTheWisps, name: "Ori and the Will of the Wisps", price: "29.99", genre: "Adventure", description: "A beautiful and emotional platformer set in a mystical forest.", rating: 3 },
     { id: 53, image: starfield, name: "Starfield", price: "69.99", genre: "R.P.G", description: "Explore the stars in Bethesda's latest space-faring RPG.", rating: 4 },

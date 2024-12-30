@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaUserAlt, FaUserSlash, FaSignOutAlt } from "react-icons/fa"; // Import the required icons
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,7 @@ const Navbar = () => {
     const [userName, setUserName] = useState(null); // Define state for userName
     const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
     const [search, setSearch] = useState();
+    const inputRef = useRef(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
@@ -66,24 +67,28 @@ const Navbar = () => {
     };
 
     const handleSearch = (e) => {
-        e.preventDefault()
-        dispatch(setSearchTerm(search))
-        navigate("/filter-data")
-    }
+        e.preventDefault();
+        dispatch(setSearchTerm(search));
+        setSearch('');
+        inputRef.current.blur();
+        navigate("/filter-data");
+    };    
 
     return (
         <nav className="bg-gray-900 font-bahnschrift">
             <div className="container mx-auto px-4 md:px-16 lg:px-16 py-4 flex items-center">
-            <Link to="/" className="text-indigo-400 text-xl font-bold hover:text-indigo-500 transition duration-300">
-                ArKade
-            </Link>
+                <Link to="/" className="text-indigo-400 text-xl font-bold hover:text-indigo-500 transition duration-300">
+                    ArKade
+                </Link>
 
                 {/* Search Form */}
                 <div className="relative flex-1 mx-4">
                     <form onSubmit={handleSearch}>
                         <input
+                            ref={inputRef}
                             type="text"
                             placeholder="Search Product..."
+                            value={search} // Bind the state
                             className="w-full border border-gray-600 bg-gray-800 text-gray-100 py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-indigo-500"
                             onChange={(e) => setSearch(e.target.value)}
                         />

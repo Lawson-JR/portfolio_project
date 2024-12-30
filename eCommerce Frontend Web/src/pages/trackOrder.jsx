@@ -1,9 +1,9 @@
 import React from "react";
 
-const Wishlist = () => {
+const trackOrder = () => {
     return (
         <div></div>
     );
 };
 
-export default Wishlist;
+export default trackOrder;
