@@ -69,10 +69,6 @@ const Checkout = () => {
         state: '',
         zip: '',
         country: 'Nigeria',
-        cardName: '',
-        cardNumber: '',
-        expiryDate: '',
-        cvv: '',
     });
 
     const handleInputChange = (e) => {
@@ -83,25 +79,13 @@ const Checkout = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent the form from submitting
-    
-        // Validate the state selection
+        e.preventDefault();
         if (formData.state === '') {
             setError('Please select a state');
-            return; // Prevent form submission if validation fails
+            return;
         }
-    
-        setError(''); // Clear the error if the state is valid
-    
-        // Prepare cart details to save in localStorage
-        const cartDetails = {
-            formData,
-            cartItems,
-            totalQuantity, // Include total quantity
-            totalAmount,   // Include total amount
-        };
-    
-        // Navigate to the confirmation page with cart details
+        setError('');
+        const cartDetails = { formData, cartItems, totalQuantity, totalAmount };
         navigate('/confirmation', { state: cartDetails });
     };    
 
@@ -264,61 +248,26 @@ const Checkout = () => {
                                 />
                             </div>
 
-                            {/* Payment Information */}
-                            <h3 className="text-lg font-semibold pb-2 border-b mb-4">Payment Information</h3>
-                            <div className="mb-6">
-                                <label className="block text-sm mb-2">Card Name <span className="text-red-500">*</span></label>
-                                <input 
-                                    type="text" 
-                                    name="cardName"
-                                    value={formData.cardName}
-                                    onChange={handleInputChange}
-                                    className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
+                            {/* COD Payment Reminder */}
+                            <h3 className="text-lg font-semibold pb-2 border-b mb-4">COD Payment Reminder</h3>
+                            <div className="flex items-center mb-4">
+                                <input
+                                    type="checkbox"
+                                    name="agreeToTerms"
+                                    id="agreeToTerms"
+                                    className="h-4 w-4 border-gray-300 rounded focus:ring-indigo-500 text-indigo-600 mr-2"
                                     required
                                 />
-                            </div>
-                            <div className="mb-6">
-                                <label className="block text-sm mb-2">Card Number <span className="text-red-500">*</span></label>
-                                <input 
-                                    type="text" 
-                                    name="cardNumber"
-                                    value={formData.cardNumber}
-                                    onChange={handleInputChange}
-                                    className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
-                                    required
-                                />
-                            </div>
-                            <div className="mb-6 grid grid-cols-2 gap-4">
-                                <div>
-                                    <label className="block text-sm mb-2">Expiry Date <span className="text-red-500">*</span></label>
-                                    <input 
-                                        type="date" 
-                                        name="expiryDate"
-                                        value={formData.expiryDate}
-                                        onChange={handleInputChange}
-                                        min={today}
-                                        className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
-                                        required
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm mb-2">CVV <span className="text-red-500">*</span></label>
-                                    <input 
-                                        type="text" 
-                                        name="cvv"
-                                        value={formData.cvv}
-                                        onChange={handleInputChange}
-                                        className="w-full p-3 border border-gray-500 rounded focus:outline-none bg-gray-900 text-white"
-                                        required
-                                    />
-                                </div>
+                                <label htmlFor="agreeToTerms" className="ml-2">
+                                    Please note that we only accept Cash on Delivery (COD) as a payment method. By proceeding, you confirm that you agree to our Terms and Conditions.
+                                </label>
                             </div>
 
                             {/* Error Message */}
                             {error && <div className="text-red-500">{error}</div>}
                             
                             <button type="submit" className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700 mt-4">
-                                Proceed to Payment
+                                Proceed to Confirmation
                             </button>
                         </form>
                     </div>

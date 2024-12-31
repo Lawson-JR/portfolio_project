@@ -109,11 +109,11 @@ export const Categories = [
 export const mockData = [
     // Top 8 Games
     { id: 1, image: fc24, name: "FC 24", price: "69.99", genre: "Sports", description: "Experience the thrill of FC 24 with improved gameplay, graphics, and realism.", rating: 5},
-    { id: 2, image: theLegendOfZeldaBreathOfTheWild, name: "The Legend of Zelda: Breath of the Wild", price: "59.99", genre: "Action/Adventure", description: "Embark on an epic open-world journey as Link to save the kingdom of Hyrule.", rating: 5},
-    { id: 3, image: theWitcherIIIWildHunt, name: "The Witcher 3: Wild Hunt", price: "39.99", genre: "R.P.G", description: "Explore a richly detailed fantasy world as Geralt of Rivia.", rating: 5},
+    { id: 2, image: arkhamKnight, name: "Batman: Arkham Knight", price: "59.99", genre: "Action/Adventure", description: "Defend Gotham City in the explosive finale to the Arkham series.", rating: 5 },
+    { id: 3, image: forzaHorizon5, name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 5 },
     { id: 4, image: civilizationVI, name: "Civilization VI", price: "29.99", genre: "Strategy", description: "Lead your civilization from the Stone Age to the Information Age.", rating: 5},
-    { id: 5, image: nba2k24, name: "NBA 2K24", price: "69.99", genre: "Sports", description: "The most realistic basketball experience awaits with NBA 2K24.", rating: 5},
-    { id: 6, image: forzaHorizon5, name: "Forza Horizon 5", price: "59.99", genre: "Sports", description: "Race through stunning environments in this open-world driving experience.", rating: 5 },
+    { id: 6, image: nba2k24, name: "NBA 2K24", price: "69.99", genre: "Sports", description: "The most realistic basketball experience awaits with NBA 2K24.", rating: 5},
+    { id: 3, image: theWitcherIIIWildHunt, name: "The Witcher 3: Wild Hunt", price: "39.99", genre: "R.P.G", description: "Explore a richly detailed fantasy world as Geralt of Rivia.", rating: 5},
     { id: 7, image: farCry6, name: "Far Cry 6", price: "59.99", genre: "Adventure", description: "Fight for freedom in a tropical paradise ruled by a dictator.", rating: 5},
     { id: 8, image: marvelSpidermanRemastered, name: "Marvel's Spider-Man Remastered", price: "29.99", genre: "Action/Adventure", description: "Swing through the Marvel Universe as Spider-Man and protect New York City from iconic villains.", rating: 5},
     
@@ -163,7 +163,7 @@ export const mockData = [
     { id: 51, image: darkSoulsIII, name: "Dark Souls III", price: "39.99", genre: "R.P.G", description: "Survive a challenging, dark fantasy world in this action RPG.", rating: 2 },
     { id: 52, image: oriAndTheWillOfTheWisps, name: "Ori and the Will of the Wisps", price: "29.99", genre: "Adventure", description: "A beautiful and emotional platformer set in a mystical forest.", rating: 3 },
     { id: 53, image: starfield, name: "Starfield", price: "69.99", genre: "R.P.G", description: "Explore the stars in Bethesda's latest space-faring RPG.", rating: 4 },
-    { id: 54, image: arkhamKnight, name: "Batman: Arkham Knight", price: "19.99", genre: "Action/Adventure", description: "Defend Gotham City in the explosive finale to the Arkham series.", rating: 4 },
+    { id: 54, image: theLegendOfZeldaBreathOfTheWild, name: "The Legend of Zelda: Breath of the Wild", price: "19.99", genre: "Action/Adventure", description: "Embark on an epic open-world journey as Link to save the kingdom of Hyrule.", rating: 3},
     { id: 55, image: stardewValley, name: "Stardew Valley", price: "14.99", genre: "Simulation", description: "Build the farm of your dreams in this charming indie farming game.", rating: 2 },
     { id: 56, image: hadesII, name: "Hades II", price: "24.99", genre: "Action", description: "Fight your way out of the underworld in this fast-paced roguelike.", rating: 3 },
     { id: 57, image: kerbalSpaceProgram, name: "Kerbal Space Program", price: "39.99", genre: "Simulation", description: "Design and launch rockets in this space simulation.", rating: 4 },

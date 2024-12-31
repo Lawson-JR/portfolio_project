@@ -59,7 +59,7 @@ const Confirmation = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
                             {/* Customer Information */}
                             <div>
-                                <h4 className="font-semibold mb-4 text-lg text-gray-300">Your Information</h4>
+                                <h4 className="font-semibold mb-3 text-lg text-gray-300">Your Information</h4>
                                 <div className="border border-gray-600 p-4 rounded-md">
                                     <p><strong>Name:</strong> {formData?.firstName} {formData?.lastName}</p>
                                     <p><strong>Email:</strong> {formData?.email}</p>
@@ -68,27 +68,20 @@ const Confirmation = () => {
 
                             {/* Shipping Address */}
                             <div>
-                                <h4 className="font-semibold mb-4 text-lg text-gray-300">Shipping Address</h4>
+                                <h4 className="font-semibold mb-3 text-lg text-gray-300">Shipping Address</h4>
                                 <div className="border border-gray-600 p-4 rounded-md">
-                                    <p><strong>Address:</strong> {formData?.address}</p>
-                                    <p><strong>City:</strong> {formData?.city}</p>
-                                    <p><strong>State:</strong> {formData?.state}</p>
-                                    <p><strong>Zip Code:</strong> {formData?.zip}</p>
-                                </div>
-                            </div>
-
-                            {/* Payment Information */}
-                            <div>
-                                <h4 className="font-semibold mb-4 text-lg text-gray-300">Payment Information</h4>
-                                <div className="border border-gray-600 p-4 rounded-md">
-                                    <p><strong>Card Holder:</strong> {formData?.cardName}</p>
-                                    <p><strong>Card Number:</strong> **** **** **** {formData?.cardNumber?.slice(-4)}</p>
+                                    <p>
+                                        <strong>Address:</strong> {formData?.address}, {formData?.city}
+                                    </p>
+                                    <p>
+                                        <strong>State:</strong> {formData?.state}, <strong>Zip Code:</strong> {formData?.zip}
+                                    </p>
                                 </div>
                             </div>
 
                             {/* Billing Address */}
                             <div>
-                                <h4 className="font-semibold mb-4 text-lg text-gray-300">Billing Address</h4>
+                                <h4 className="font-semibold mb-3 text-lg text-gray-300">Billing Address</h4>
                                 <div className="border border-gray-600 p-4 rounded-md">
                                     <p><strong>Address:</strong> {formData?.address}</p>
                                     <p><strong>Phone:</strong> {formData?.phone}</p>
@@ -143,7 +136,7 @@ const Confirmation = () => {
                                 onClick={() => navigate('/')} // Redirect to homepage
                                 className="px-4 py-2.5 bg-red-600 text-gray-300 rounded-lg hover:bg-red-700 transition ease-in-out duration-300"
                             >
-                                Go to Home
+                                Track Order
                             </button>
                         </div>
                     </div>
