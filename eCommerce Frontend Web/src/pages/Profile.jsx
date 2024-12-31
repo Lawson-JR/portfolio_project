@@ -184,7 +184,7 @@ const Profile = ({ setCurrentUser }) => {
                 <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
                     <ul className="space-y-4">
                         {userDetails ? (
-                            <li className="border-b border-gray-700 pb-2">
+                            <li>
                                 <p className="font-semibold">Opened the account</p>
                                 <span className="text-gray-500 text-sm">
                                     Date: {new Date(userDetails.openedDate).toLocaleDateString()}
@@ -234,6 +234,15 @@ const Profile = ({ setCurrentUser }) => {
                             )}
                         </ul>
                     </div>
+                </div>
+
+                <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+                    <h2 className="text-lg font-bold mb-4">Order History</h2>
+                    <ul className="space-y-4">
+                        <li className="border-gray-700 pb-2">
+                            <p className="font-semibold">Loading activity...</p>
+                        </li>
+                    </ul>
                 </div>
 
                 <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">

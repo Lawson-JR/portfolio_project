@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Cart = () => {
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
-
+    
     // Load the user's cart from localStorage on component mount
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -27,7 +27,17 @@ const Cart = () => {
             dispatch(hydrateCart(tempCart));
         }
     }, [dispatch]);
-
+    
+    // Calculate the shipping date (1 week from today)
+    const shippingDate = new Date();
+    shippingDate.setDate(shippingDate.getDate() + 7);
+    const formattedShippingDate = shippingDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+    });
+        
     // Handle cart operations like increment, decrement, and remove
     const handleIncrement = (product) => {
         dispatch(updateCartQuantity({ id: product.id, quantity: product.quantity + 1 }));
@@ -85,9 +95,13 @@ const Cart = () => {
                         <div>
                             {cart.products.map((product) => (
                                 <div key={product.id} className="flex items-center justify-between py-4 px-3 bg-gray-600 my-3 rounded-lg">
-                                    <div className="md:flex items-center space-x-4">
-                                        <img src={product.image} alt={product.name} className="w-16 rounded object-contain" />
-                                        <div className="ml-2">
+                                    <div className="md:flex items-center space-x-4 mr-2">
+                                        <img 
+                                            src={product.image} 
+                                            alt={product.name} 
+                                            className="hidden lg:block w-16 rounded object-contain" 
+                                        />
+                                        <div>
                                             <h3 className="text-sm font-semibold">{product.name}</h3>
                                         </div>
                                     </div>
@@ -123,22 +137,25 @@ const Cart = () => {
 
                     {/* Cart Summary Section */}
                     <div className="flex-1 h-full bg-gray-800 p-5 rounded-lg space-y-6 text-white">
-                        <h3 className="text-lg font-semibold border-b pb-3">CART SUMMARY</h3>
-                        <div className="space-y-3 px-1">
-                            <div className="flex justify-between py-2">
-                                <span>Total items:</span>
+                        <h3 className="text-lg font-semibold border-b pb-2">CART SUMMARY</h3>
+                        <div className="space-y-2 px-1">
+                            <div className="flex justify-between pb-2">
+                                <span className="font-semibold">Total items:</span>
                                 {cart.totalQuantity === 1 
                                     ? <span className="flex items-center gap-2">{cart.totalQuantity}</span>
                                     : <span className="flex items-center gap-2">{cart.totalQuantity}</span> 
                                 }
                             </div>
-                            <div className="flex justify-between py-2">
-                                <p>Shipping Cost:</p>
+                            <div className="flex justify-between pb-2">
+                                <p className="font-semibold">Shipping Cost:</p>
                                 <span>${shippingCost.toFixed(2)}</span>
                             </div>
-                            <div className="flex justify-between py-3 border-t px-1">
-                                <p>Total Price:</p>
+                            <div className="flex justify-between pb-2 pt-3 border-t">
+                                <p className="font-semibold">Total Price:</p>
                                 <span>${(cart.totalPrice + shippingCost).toFixed(2)}</span>
+                            </div>
+                            <div className="text-gray-100 pb-3">
+                                <span className="font-semibold mr-2">Estimated Arrival:</span> {formattedShippingDate}
                             </div>
                         </div>
                         <Link to="/checkout">
