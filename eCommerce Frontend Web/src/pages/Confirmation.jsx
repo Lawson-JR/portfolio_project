@@ -21,12 +21,14 @@ const Confirmation = () => {
     // Function to handle order placement
     const handlePlaceOrder = () => {
         setIsModalOpen(true); // Show the success modal
+
     };
 
     // Function to handle the overall order placement flow
     const handleOrder = () => {
         handlePlaceOrder();
         dispatch(clearCart())
+        
     };
 
     return (
