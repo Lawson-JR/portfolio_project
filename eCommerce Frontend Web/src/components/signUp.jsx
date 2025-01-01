@@ -192,7 +192,7 @@ const SignUp = ({ onSwitchToLogin }) => {
                                 className="h-4 w-4 border-gray-300 rounded focus:ring-indigo-500 text-indigo-600"
                                 required
                             />
-                            <label htmlFor="agreeToTerms" className="ml-2 text-gray-300">I agree to the terms and conditions</label>
+                            <label htmlFor="agreeToTerms" className="ml-2 text-gray-300">I agree to the<a href="/terms" target='_blank' className='text-indigo-500 hover:underline ml-1'>terms and conditions</a></label>
                             {errors.agreeToTerms && <span className="block text-red-500 text-sm">{errors.agreeToTerms}</span>}
                         </div>
 

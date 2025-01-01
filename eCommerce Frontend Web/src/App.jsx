@@ -12,6 +12,9 @@ import Confirmation from './pages/Confirmation';
 import Profile from './pages/Profile';
 import LogIn from './components/logIn';
 import FilterData from './pages/filterData';
+import TrackOrder from "./pages/trackOrder.jsx"
+import Terms from "./pages/terms.jsx"
+import Policy from "./pages/Policy.jsx"
 
 function App() {
     const [currentUser, setCurrentUser] = useState(null); 
@@ -147,6 +150,9 @@ const AppContent = ({ currentUser, setCurrentUser, isLoginModalOpen, setIsLoginM
                 <Route path="/confirmation" element={<Confirmation />} />
                 <Route path="/profile" element={<Profile setCurrentUser={setCurrentUser} />} />
                 <Route path="/filter-data" element={<FilterData />} />
+                <Route path="/trackOrder" element={<TrackOrder />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/policy" element={<Policy />} />
             </Routes>
 
             {isLoginModalOpen && (

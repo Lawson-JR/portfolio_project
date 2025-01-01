@@ -87,6 +87,13 @@ const Confirmation = () => {
                                     <p><strong>Phone:</strong> {formData?.phone}</p>
                                 </div>
                             </div>
+
+                            <div>
+                                <h4 className="font-semibold mb-3 text-lg text-gray-300">COD Payment Reminder</h4>
+                                <div className="border border-gray-600 p-4 rounded-md">
+                                    <p>You agreed to Cash on Delivery and our Terms. Please ensure payment is ready upon delivery. Thank you!</p>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Order Summary Section */}
@@ -103,12 +110,12 @@ const Confirmation = () => {
                                 <tbody className="text-gray-300">
                                     {cartItems.map((item) => (
                                         <tr key={item.id}>
-                                            <td className="p-4 border-gray-700">{item.name}</td>
-                                            <td className="p-4 text-center border-gray-700">{item.quantity}</td>
-                                            <td className="p-4 text-center border-gray-700 text-green-500">
+                                            <td className="px-4 py-3 border-gray-700">{item.name}</td>
+                                            <td className="px-4 py-3 text-center border-gray-700">{item.quantity}</td>
+                                            <td className="px-4 py-3 text-center border-gray-700 text-green-500">
                                                 ${(item.quantity * item.price).toFixed(2)}
                                             </td>
-                                            <td className="p-4 pr-6 text-center border-gray-700 text-green-500">$5</td>
+                                            <td className="px-4 py-3 pr-6 text-center border-gray-700 text-green-500">$5</td>
                                         </tr>
                                     ))}
                                 </tbody>

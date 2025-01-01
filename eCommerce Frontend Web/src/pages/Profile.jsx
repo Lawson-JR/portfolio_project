@@ -5,8 +5,7 @@ import { FaPlus, FaTrashAlt } from "react-icons/fa";
 
 const Profile = ({ setCurrentUser }) => {
     const navigate = useNavigate();
-    const [userDetails, setUserDetails] = useState(null); 
-    const [timeLeft, setTimeLeft] = useState(null); 
+    const [userDetails, setUserDetails] = useState(null);
     const [favoriteGames, setFavoriteGames] = useState([]); 
     const [newGame, setNewGame] = useState(''); 
     const [editingUsername, setEditingUsername] = useState(false); 
