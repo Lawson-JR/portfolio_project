@@ -12,7 +12,7 @@ const Footer = () => {
                 <div>
                     <h3 className="text-2xl font-bold text-indigo-400">ArKade</h3>
                     <p className="text-gray-400 mt-4 font-cursive italic">
-                        "Join the Next Generation of Nigerian Gamers - Unleash Your Potential and Shape the Future of Gaming!"
+                        "Your ultimate destination for the best PS5 games. Browse, shop, and level up your gaming experience!"
                     </p>
                 </div>
 
