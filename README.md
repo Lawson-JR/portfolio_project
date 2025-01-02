@@ -1,7 +1,7 @@
 # Game eCommerce Frontend App
 
 ## Overview
-This is a **game eCommerce frontend app** built with **React**, **Redux**, **Tailwind CSS**, **Vite**, and **FontAwesome**. It allows users to browse a large collection of games, add items to their cart, manage favorites, and sign up or log in. All user data, including cart and favorites, are stored locally using **localStorage** since there is no backend.
+This is a **game eCommerce frontend app** built with **React**, **Redux**, **Tailwind CSS**, **Vite**, and **FontAwesome**. It allows users to browse a large collection of games, add items to their cart, manage favorites, track orders and sign up or log in. All user data, including cart and favorites, are stored locally using **localStorage** since there is no backend.
 
 ## Features
 - **Game Catalog**: Browse a massive collection of games with search, filter, and sorting options.
@@ -37,7 +37,7 @@ This is a **game eCommerce frontend app** built with **React**, **Redux**, **Tai
 
 ## Project Presentation
 - You can view the slides presentation on [Google Slides: Project Presentation](https://docs.google.com/presentation/d/17qyPVCzxtGsOxNg1qufGMfSXL5yHhzErH7Kl1eAXhQU/edit?usp=sharing)
-- You can view the [video demo presentation](https://google.com)
+- You can view the [video demo presentation](https://drive.google.com/file/d/1V1Q8n5WSdhlQm7qE06z3Vdvgf05QnxQH/view?usp=drive_link)
 
 ## Future Improvements
 - **Backend Integration**: Add a backend for secure user authentication, order processing, and dynamic content.
