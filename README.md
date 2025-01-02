@@ -9,6 +9,7 @@ This is a **game eCommerce frontend app** built with **React**, **Redux**, **Tai
 - **Cart Management**: Users can add and remove games from their cart, with items saved across sessions.
 - **Favorites**: Mark and unmark games as favorites, saved in localStorage.
 - **Responsive Design**: Fully responsive layout, optimized for desktop, tablet, and mobile devices.
+- **Order Tracking**:Track your orders in real-time and know exactly when they will be delivered, with estimated delivery dates.
 
 ## Tech Stack
 - **React**: Component-based architecture for dynamic user interfaces.
