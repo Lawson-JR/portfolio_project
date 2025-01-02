@@ -186,7 +186,7 @@ const Navbar = () => {
                     to="/about"
                     className={`transition duration-300 ${location.pathname === "/about" ? "text-indigo-400 hover:text-indigo-500 transition duration-300" : "text-gray-100 hover:text-indigo-400"}`}
                 >
-                    About
+                    About Me
                 </Link>
             </div>
 

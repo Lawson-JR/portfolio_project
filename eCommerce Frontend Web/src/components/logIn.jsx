@@ -37,7 +37,6 @@ const LogIn = ({ setUserName, setIsModalOpen }) => { // Change here
         // Update userName and close modal
         setUserName(currentUser.username); // Change here to update username
         localStorage.setItem('currentUser', JSON.stringify(currentUser));
-        localStorage.setItem('sessionStart', Date.now()); // Store session start time
 
         closeModal(); // Close the modal
         navigate('/cart'); // Navigate to the profile page

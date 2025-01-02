@@ -29,8 +29,7 @@ const Profile = ({ setCurrentUser }) => {
         const confirmLogout = window.confirm("Are you sure you want to log out?");
         if (confirmLogout) {
             localStorage.removeItem('currentUser'); 
-            localStorage.removeItem('currentUserEmail'); 
-            localStorage.removeItem('sessionStart'); 
+            localStorage.removeItem('currentUserEmail');
             setCurrentUser(null); 
             alert('You have been logged out.'); 
             navigate('/cart');
@@ -52,8 +51,7 @@ const Profile = ({ setCurrentUser }) => {
             localStorage.setItem('users', JSON.stringify(updatedUsersList));
 
             localStorage.removeItem('currentUser'); 
-            localStorage.removeItem('currentUserEmail'); 
-            localStorage.removeItem('sessionStart'); 
+            localStorage.removeItem('currentUserEmail');
             setCurrentUser(null); 
             alert('Your account has been deleted.'); 
             navigate('/cart');

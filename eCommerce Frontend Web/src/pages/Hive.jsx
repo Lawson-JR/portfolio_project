@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"; 
 import ProductCard from "../components/productCard";
-import { FaPlus } from "react-icons/fa";
+import { FaClipboardList, FaPlus} from "react-icons/fa";
 import { addToCart } from "../redux/cartSlice"; 
 
 const Hive = () => {
@@ -55,26 +55,32 @@ const Hive = () => {
     return (
         <div className="font-bahnschrift md:px-16 lg:px-16 bg-gray-900 text-gray-100">
             <div className="py-8">
-                <div className="relative mb-14 -mt-3">
-                    <select
-                        className="absolute top-0 right-0 bg-gray-700 text-white ml-1 p-2 text-sm rounded-lg border outline-0"
-                        value={category || "All"}
-                        onChange={(e) => {
-                            const selectedCategory = e.target.value;
-                            navigate(selectedCategory === "All" ? "/hive" : `/hive/${selectedCategory}`);
-                        }}
-                    >
-                        <option className="text-sm" value="All">All</option>
-                        <option className="text-sm" value="Action">Action</option>
-                        <option className="text-sm" value="Adventure">Adventure</option>
-                        <option className="text-sm" value="R.P.G">R.P.G</option>
-                        <option className="text-sm" value="Sports">Sports</option>
-                        <option className="text-sm" value="Simulation">Simulation</option>
-                        <option className="text-sm" value="Strategy">Strategy</option>
-                        <option className="text-sm" value="Horror">Horror</option>
-                        <option className="text-sm" value="Survival">Survival</option>
-                    </select>
-                </div>
+            <div className="relative mb-14 -mt-3">
+                <Link to="/trackOrder">
+                    <FaClipboardList
+                        className="text-gray-300 cursor-pointer absolute top-1 right-32 text-2xl hover:text-gray-400 transition 0.3s" 
+                    />
+                </Link>
+                <select
+                    className="absolute top-0 right-0 bg-gray-700 text-white p-2 text-sm rounded-lg border outline-0"
+                    value={category || "All"}
+                    onChange={(e) => {
+                        const selectedCategory = e.target.value;
+                        navigate(selectedCategory === "All" ? "/hive" : `/hive/${selectedCategory}`);
+                    }}
+                >
+                    <option className="text-sm" value="All">All</option>
+                    <option className="text-sm" value="Action">Action</option>
+                    <option className="text-sm" value="Adventure">Adventure</option>
+                    <option className="text-sm" value="R.P.G">R.P.G</option>
+                    <option className="text-sm" value="Sports">Sports</option>
+                    <option className="text-sm" value="Simulation">Simulation</option>
+                    <option className="text-sm" value="Strategy">Strategy</option>
+                    <option className="text-sm" value="Horror">Horror</option>
+                    <option className="text-sm" value="Survival">Survival</option>
+                </select>
+            </div>
+
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {filteredProducts.length > 0 ? (
@@ -82,7 +88,7 @@ const Hive = () => {
                             <ProductCard
                                 key={product.id}
                                 product={product}
-                                onProductClick={handleProductClick} 
+                                onProductClick={handleProductClick}
                             />
                         ))
                     ) : (

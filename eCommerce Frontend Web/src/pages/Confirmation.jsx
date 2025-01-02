@@ -18,18 +18,52 @@ const Confirmation = () => {
     // State to manage modal visibility
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Function to handle order placement
-    const handlePlaceOrder = () => {
-        setIsModalOpen(true); // Show the success modal
-
+    const saveOrder = (orderDetails) => {
+        // Add date logic
+        const orderDate = new Date(); // Current date
+        const deliveryDate = new Date(orderDate);
+        deliveryDate.setDate(orderDate.getDate() + 7); // Add 7 days
+    
+        const enrichedOrderDetails = {
+            ...orderDetails,
+            date: orderDate.toISOString(), // Save as ISO string
+            deliveryDate: deliveryDate.toISOString(),
+        };
+    
+        // Check if the user is logged in
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    
+        if (currentUser) {
+            // Logic for logged-in users
+            const usersList = JSON.parse(localStorage.getItem("users")) || [];
+            const userIndex = usersList.findIndex(user => user.email === currentUser.email);
+    
+            if (userIndex !== -1) {
+                const userOrders = usersList[userIndex].orders || [];
+                usersList[userIndex].orders = [...userOrders, enrichedOrderDetails];
+                localStorage.setItem("users", JSON.stringify(usersList));
+            }
+        } else {
+            // Logic for guest users
+            const tempOrders = JSON.parse(localStorage.getItem("tempOrder")) || [];
+            localStorage.setItem("tempOrder", JSON.stringify([...tempOrders, enrichedOrderDetails]));
+        }
     };
 
-    // Function to handle the overall order placement flow
     const handleOrder = () => {
-        handlePlaceOrder();
-        dispatch(clearCart())
-        
+        const orderDetails = {
+            cartItems,
+            totalQuantity,
+            totalAmount,
+            shippingCost,
+            grandTotal,
+        };
+
+        saveOrder(orderDetails);
+        setIsModalOpen(true); // Show the success modal
+        dispatch(clearCart());
     };
+
 
     return (
         <div className="font-bahnschrift min-h-screen flex items-center justify-center bg-gray-700 p-8">
@@ -142,7 +176,7 @@ const Confirmation = () => {
                                 </button>
                             </Link>
                             <button
-                                onClick={() => navigate('/')} // Redirect to homepage
+                                onClick={() => navigate('/trackOrder')} // Redirect to homepage
                                 className="px-4 py-2.5 bg-red-600 text-gray-300 rounded-lg hover:bg-red-700 transition ease-in-out duration-300"
                             >
                                 Track Order

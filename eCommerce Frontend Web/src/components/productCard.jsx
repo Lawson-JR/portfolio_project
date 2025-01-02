@@ -29,7 +29,7 @@ const ProductCard = ({ product, onProductClick }) => {
 
     return (
         <div
-            className="bg-gray-800 rounded-lg shadow-md p-4 transition-transform duration-300 hover:scale-105 flex flex-col"
+            className="bg-gray-800 rounded-lg shadow-md p-4 transition-transform duration-300 hover:scale-105 flex flex-col select-none"
             onClick={() => onProductClick(product)}
         >
             <img
