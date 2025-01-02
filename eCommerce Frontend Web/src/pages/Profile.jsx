@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import profilePic from "../assets/images/user.png";
-import { FaPlus, FaTrashAlt } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaPlus, FaTrashAlt } from "react-icons/fa";
 
 const Profile = ({ setCurrentUser }) => {
     const navigate = useNavigate();
@@ -233,13 +233,11 @@ const Profile = ({ setCurrentUser }) => {
                     </div>
                 </div>
 
-                <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
-                    <h2 className="text-lg font-bold mb-4">Order History</h2>
-                    <ul className="space-y-4">
-                        <li className="border-gray-700 pb-2">
-                            <p className="font-semibold">Loading activity...</p>
-                        </li>
-                    </ul>
+                <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6 flex items-center justify-between">
+                    <h2 className="text-lg font-bold">Order History</h2>
+                    <Link to="/trackOrder">
+                        <FaArrowAltCircleRight className="hover:text-indigo-500 transition 0.3s"/>
+                    </Link>
                 </div>
 
                 <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-6">

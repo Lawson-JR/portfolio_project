@@ -13,11 +13,17 @@ const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const products = useSelector((state) => state.product.products);
+    const [username, setUsername] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isFadingOut, setIsFadingOut] = useState(false);
 
     useEffect(() => {
         dispatch(setProducts(mockData));
+
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (currentUser && currentUser.username) {
+            setUsername(currentUser.username);
+        }
     }, [dispatch]);
 
     const handleProductClick = (product) => {
@@ -47,6 +53,17 @@ const Home = () => {
 
     return (
         <div className="font-bahnschrift px-4 md:px-16 lg:px-16 bg-gray-900 text-gray-100">
+            {username && (
+                <div>
+                    <h1
+                        className="text-3xl font-extrabold bg-gradient-to-r from-indigo-700 to-gray-700 text-transparent bg-clip-text shadow-md animate-fade-in text-center pt-5 pb-3 w-1/2 m-auto"
+                    >
+                        👋 Welcome, {username}!
+                    </h1>
+                </div>
+            )}
+
+
             <div className="container mx-auto py-6 flex flex-col md:flex-row space-x-2">
                 {/* Sidebar for game categories */}
                 <div className="w-full md:w-3/12">
